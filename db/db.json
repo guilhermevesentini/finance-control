@@ -1,0 +1,204 @@
+{
+  "users": [
+    {
+      "username": "usuario",
+      "password": "usuario",
+      "token": "6387c3be0632696f8a7c39c3b0fcc3d8",
+      "_id": "ae77fa5b2fc1d3fa8b42194638f7d938",
+      "id": "1"
+    },
+    {
+      "username": "user",
+      "password": "user",
+      "token": "483984cd85d96da73bc3ef90ba914503",
+      "_id": "366c0de2a2f35351f72e92ffe2bdccef",
+      "id": "2"
+    },
+    {
+      "username": "teste",
+      "password": "teste",
+      "token": "a0ee902a8fd3d912b3f41d6c6f523941",
+      "_id": "fcf70098d53e76ac13d2113b93a083e9",
+      "id": "3"
+    }
+  ],
+  "despesas": [
+    {
+      "id": "833850c6f21ff130961f6923bb2932dd",
+      "nome": "Aluguel",
+      "previsao": "",
+      "recorrente": "2",
+      "frequencia": "",
+      "meses": [
+        {
+          "valor": 952,
+          "ano": 2024,
+          "status": "2",
+          "descricao": "Nanci",
+          "despesaId": "52bf88ba5f1bde4d4d6a1e16946091c4",
+          "vencimento": "2024-11-05T03:00:00.000Z",
+          "observacao": ""
+        },
+        {
+          "valor": 952,
+          "ano": 2024,
+          "status": "2",
+          "descricao": "Nanci",
+          "despesaId": "c8cdc69848bc78c941d949a8b029e306",
+          "vencimento": "2024-12-05T03:00:00.000Z",
+          "observacao": ""
+        }
+      ],
+      "costumerId": {
+        "id": ""
+      }
+    },
+    {
+      "id": "d57c85f9266230e8e1e97de7855f81a6",
+      "nome": "",
+      "previsao": "",
+      "recorrente": "",
+      "frequencia": "",
+      "meses": [
+        {
+          "valor": 0,
+          "ano": null,
+          "status": "Não",
+          "descricao": "",
+          "despesaId": "673811c1bcef101ca16f6727a5cc2b3d",
+          "vencimento": "",
+          "observacao": ""
+        }
+      ],
+      "costumerId": {
+        "id": ""
+      }
+    },
+    {
+      "id": "ca7345a020b9fd9040b79c296beb6f0d",
+      "nome": "",
+      "previsao": "",
+      "recorrente": "",
+      "frequencia": "",
+      "meses": [
+        {
+          "valor": 0,
+          "ano": null,
+          "status": "Não",
+          "descricao": "",
+          "despesaId": "d1339e3c85520265596e5bc4a7cb7f0b",
+          "vencimento": "",
+          "observacao": ""
+        }
+      ],
+      "costumerId": {
+        "id": ""
+      }
+    },
+    {
+      "id": "6be0bb250dd8b3c9d8f5696ed5e2aded",
+      "nome": "",
+      "previsao": "",
+      "recorrente": "",
+      "frequencia": "",
+      "meses": [
+        {
+          "valor": 0,
+          "ano": null,
+          "status": "Não",
+          "descricao": "",
+          "despesaId": "0aff3b50ec7a1fadda3a212daedd9088",
+          "vencimento": "",
+          "observacao": ""
+        }
+      ],
+      "costumerId": {
+        "id": ""
+      }
+    },
+    {
+      "id": "866684ab0101bb8792034d750f11b655",
+      "nome": "",
+      "previsao": "",
+      "recorrente": "",
+      "frequencia": "",
+      "meses": [
+        {
+          "valor": 0,
+          "ano": null,
+          "status": "Não",
+          "descricao": "",
+          "despesaId": "1d83d4fa2be1e0fef031386480aef2a9",
+          "vencimento": "",
+          "observacao": ""
+        }
+      ],
+      "costumerId": {
+        "id": ""
+      }
+    },
+    {
+      "id": "6d46954897760efa05481960dbfbd901",
+      "nome": "",
+      "previsao": "",
+      "recorrente": "",
+      "frequencia": "",
+      "meses": [
+        {
+          "valor": 0,
+          "ano": null,
+          "status": "Não",
+          "descricao": "",
+          "despesaId": "2e0288a02e5f2fedca4abd41fa0da8d3",
+          "vencimento": "",
+          "observacao": ""
+        }
+      ],
+      "costumerId": {
+        "id": ""
+      }
+    },
+    {
+      "id": "837336819217e5a8c22333bde427cbe9",
+      "nome": "",
+      "previsao": "",
+      "recorrente": "",
+      "frequencia": "",
+      "meses": [
+        {
+          "valor": 0,
+          "ano": null,
+          "status": "Não",
+          "descricao": "",
+          "despesaId": "b2be050350405096bc46c9ec26cc85d0",
+          "vencimento": "",
+          "observacao": ""
+        }
+      ],
+      "costumerId": {
+        "id": ""
+      }
+    },
+    {
+      "id": "82641958e5f14591b0471df82649f8dd",
+      "nome": "saab",
+      "previsao": "",
+      "recorrente": "1",
+      "frequencia": "",
+      "meses": [
+        {
+          "status": "1",
+          "valor": 1750.5,
+          "descricao": "escola lo",
+          "vencimento": "2024-11-05T03:00:00.000Z",
+          "ano": 2024,
+          "despesaId": "cb9dfa8ed4de662d8e412f2ae6656548",
+          "observacao": ""
+        }
+      ],
+      "costumerId": {
+        "id": ""
+      }
+    }
+  ]
+}

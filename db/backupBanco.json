@@ -1,0 +1,522 @@
+{
+    "users": [
+      {
+        "username": "usuario",
+        "password": "senha",
+        "token": "6387c3be0632696f8a7c39c3b0fcc3d8",
+        "_id": "ae77fa5b2fc1d3fa8b42194638f7d938",
+        "id": 1
+      },
+      {
+        "username": "user1",
+        "password": "123456",
+        "token": "483984cd85d96da73bc3ef90ba914503",
+        "_id": "366c0de2a2f35351f72e92ffe2bdccef",
+        "id": 2
+      }
+    ],
+    "produtos": [
+      {
+        "id": 1,
+        "_id": "ae77fa5b2fc1d3fa8b42194638f7d938",
+        "_id_Produto": "07f257491bc0324638b86c577a7c3332",
+        "nome": "aaaaaaaaa",
+        "descricao": "teste",
+        "codigo": "teste",
+        "marca": "teste",
+        "modelo": "teste",
+        "categoria": "Música e Shows",
+        "quantidade": 15,
+        "preco": 15,
+        "fornecedor": "teste",
+        "dataAquisicao": "2023-07-13",
+        "localizacao": "teste",
+        "tag": "teste",
+        "observacao": "testeawdwadwa",
+        "total": 0,
+        "tipo": "Papelaria"
+      },
+      {
+        "id": 2,
+        "_id": "ae77fa5b2fc1d3fa8b42194638f7d938",
+        "_id_Produto": "f3eed423d2d31c4887c636ec8bf4d413",
+        "nome": "gui",
+        "descricao": "awdwad",
+        "codigo": "awdwadwa",
+        "marca": "dwadawd",
+        "modelo": "awdwadwad",
+        "categoria": "Moda",
+        "quantidade": 23,
+        "preco": 444.5,
+        "fornecedor": "888",
+        "dataAquisicao": "2023-07-17",
+        "localizacao": "123123",
+        "tag": "123213",
+        "observacao": "123213213123",
+        "total": 0,
+        "tipo": "Pet Shop"
+      },
+      {
+        "id": 3,
+        "_id": "ae77fa5b2fc1d3fa8b42194638f7d938",
+        "_id_Produto": "b3c5df3252b1aa79b065a1e7951a38e9",
+        "nome": "awdwad",
+        "descricao": "awdwad",
+        "codigo": "21323",
+        "marca": "awdwad",
+        "modelo": "wdawd",
+        "categoria": "Móveis",
+        "quantidade": 132,
+        "preco": 21321,
+        "fornecedor": "dawd",
+        "dataAquisicao": "2023-07-21",
+        "localizacao": "wadwad",
+        "tag": "awdawd",
+        "observacao": "",
+        "total": 0
+      },
+      {
+        "id": 4,
+        "_id": "ae77fa5b2fc1d3fa8b42194638f7d938",
+        "_id_Produto": "6cf2cbbde32e67250eb5efda9eaf100d",
+        "nome": "guilherme",
+        "descricao": "guilherme",
+        "codigo": "321321",
+        "marca": "3213123",
+        "modelo": "guilherme",
+        "quantidade": 21321,
+        "preco": 213213,
+        "fornecedor": "guilherme",
+        "dataAquisicao": "2023-07-28",
+        "localizacao": "ffsef",
+        "tag": "sefsefesf",
+        "observacao": "",
+        "total": 0,
+        "categoria": "Música e Shows"
+      },
+      {
+        "id": 5,
+        "_id": "ae77fa5b2fc1d3fa8b42194638f7d938",
+        "_id_Produto": "bbf3661e7bfcc846ea763bca5eededdb",
+        "nome": "adadad",
+        "descricao": "adadad",
+        "codigo": "2323",
+        "marca": "213213",
+        "modelo": "12da",
+        "categoria": "Móveis",
+        "quantidade": 21,
+        "preco": 3,
+        "fornecedor": "adf",
+        "dataAquisicao": "2023-07-14",
+        "localizacao": "sefesf",
+        "tag": "sefsef",
+        "observacao": "",
+        "total": 0
+      },
+      {
+        "id": 6,
+        "_id": "ae77fa5b2fc1d3fa8b42194638f7d938",
+        "_id_Produto": "2afe805a32ce2f65768f0d38a0999221",
+        "nome": "tsfesf",
+        "descricao": "sefsef",
+        "codigo": "sefsef",
+        "marca": "sefsef",
+        "modelo": "sefsef",
+        "categoria": "Música e Shows",
+        "quantidade": 234,
+        "preco": 234,
+        "fornecedor": "sffs",
+        "dataAquisicao": "2023-07-06",
+        "localizacao": "sefsef",
+        "tag": "sefsef",
+        "observacao": "",
+        "total": 0
+      },
+      {
+        "id": 7,
+        "_id": "ae77fa5b2fc1d3fa8b42194638f7d938",
+        "_id_Produto": "c9b2cf21fb432325784ce16837b71ba2",
+        "nome": "bia",
+        "descricao": "awdawdwad",
+        "codigo": "wadwad",
+        "marca": "wdwad",
+        "modelo": "awdawd",
+        "categoria": "Pet Shop",
+        "quantidade": 42434,
+        "preco": 234324,
+        "fornecedor": "wadwad",
+        "dataAquisicao": "",
+        "localizacao": "",
+        "tag": "",
+        "observacao": "",
+        "total": 0
+      },
+      {
+        "id": 8,
+        "_id": "ae77fa5b2fc1d3fa8b42194638f7d938",
+        "_id_Produto": "789e84065ea860c35e277ea095e5eb03",
+        "nome": "awdawd",
+        "descricao": "awdawdawd",
+        "codigo": "wadwadawd",
+        "marca": "awdawd",
+        "modelo": "awdwada",
+        "categoria": "Religião e Espiritualidade",
+        "quantidade": 123,
+        "preco": 123,
+        "fornecedor": "Amazon",
+        "dataAquisicao": "2023-07-06",
+        "localizacao": "Perus",
+        "tag": "Veiculo",
+        "observacao": "",
+        "total": 0
+      },
+      {
+        "id": 9,
+        "_id": "d2aa94c5c5796d0b3c967413a0d21b1c",
+        "_id_Produto": "e87a778f37d6df27d24a1f56e9b76d95",
+        "nome": "Product 1",
+        "descricao": "Description 1",
+        "codigo": "code1",
+        "marca": "Brand 1",
+        "modelo": "Model 1",
+        "categoria": "Category 1",
+        "quantidade": 50,
+        "preco": 50.75,
+        "fornecedor": "Supplier 1",
+        "dataAquisicao": "2023-07-20",
+        "localizacao": "Location 1",
+        "tag": "Tag 1",
+        "observacao": "",
+        "total": 2537.5
+      },
+      {
+        "id": 10,
+        "_id": "e4348e1f4f78e0cbb6af3f699877405f",
+        "_id_Produto": "c6e5e59a25e93a0b66acce6e41e7f721",
+        "nome": "Product 2",
+        "descricao": "Description 2",
+        "codigo": "code2",
+        "marca": "Brand 2",
+        "modelo": "Model 2",
+        "categoria": "Category 2",
+        "quantidade": 75,
+        "preco": 39.99,
+        "fornecedor": "Supplier 2",
+        "dataAquisicao": "2023-07-19",
+        "localizacao": "Location 2",
+        "tag": "Tag 2",
+        "observacao": "",
+        "total": 2999.25
+      },
+      {
+        "id": 11,
+        "_id": "f65407a3e587fba446603bc50c9e0123",
+        "_id_Produto": "e2326e95dd3037e5f74dd3eb3e41c0c7",
+        "nome": "Product 3",
+        "descricao": "Description 3",
+        "codigo": "code3",
+        "marca": "Brand 3",
+        "modelo": "Model 3",
+        "categoria": "Category 3",
+        "quantidade": 25,
+        "preco": 199.95,
+        "fornecedor": "Supplier 3",
+        "dataAquisicao": "2023-07-18",
+        "localizacao": "Location 3",
+        "tag": "Tag 3",
+        "observacao": "",
+        "total": 4998.75
+      },
+      {
+        "id": 12,
+        "_id": "dc3d75616c5c94c21a2894d662877dc1",
+        "_id_Produto": "309f39f7c98e8ad69d90b3f2fc5643f0",
+        "nome": "Product 4",
+        "descricao": "Description 4",
+        "codigo": "code4",
+        "marca": "Brand 4",
+        "modelo": "Model 4",
+        "categoria": "Category 4",
+        "quantidade": 40,
+        "preco": 79.50,
+        "fornecedor": "Supplier 4",
+        "dataAquisicao": "2023-07-17",
+        "localizacao": "Location 4",
+        "tag": "Tag 4",
+        "observacao": "",
+        "total": 3180
+      },
+      {
+        "id": 13,
+        "_id": "8b8489cb80f021b72c8659f7992872c0",
+        "_id_Produto": "10753a40c25b3a2b3d9e67f5da7c7993",
+        "nome": "Product 5",
+        "descricao": "Description 5",
+        "codigo": "code5",
+        "marca": "Brand 5",
+        "modelo": "Model 5",
+        "categoria": "Category 5",
+        "quantidade": 100,
+        "preco": 12.99,
+        "fornecedor": "Supplier 5",
+        "dataAquisicao": "2023-07-16",
+        "localizacao": "Location 5",
+        "tag": "Tag 5",
+        "observacao": "",
+        "total": 1299
+      },
+      {
+        "id": 14,
+        "_id": "4085e706e8ffec3a8be609a1674ab7cc",
+        "_id_Produto": "17e5f1bfb28b54d12c4d7e076e5c10e5",
+        "nome": "Product 6",
+        "descricao": "Description 6",
+        "codigo": "code6",
+        "marca": "Brand 6",
+        "modelo": "Model 6",
+        "categoria": "Category 6",
+        "quantidade": 60,
+        "preco": 34.75,
+        "fornecedor": "Supplier 6",
+        "dataAquisicao": "2023-07-15",
+        "localizacao": "Location 6",
+        "tag": "Tag 6",
+        "observacao": "",
+        "total": 2085
+      },
+      {
+        "id": 15,
+        "_id": "235b8f776b996c2c9fb2e2acac8c6725",
+        "_id_Produto": "7ca2c7b5456743d18ce6b48776889f3d",
+        "nome": "Product 7",
+        "descricao": "Description 7",
+        "codigo": "code7",
+        "marca": "Brand 7",
+        "modelo": "Model 7",
+        "categoria": "Category 7",
+        "quantidade": 30,
+        "preco": 59.99,
+        "fornecedor": "Supplier 7",
+        "dataAquisicao": "2023-07-14",
+        "localizacao": "Location 7",
+        "tag": "Tag 7",
+        "observacao": "",
+        "total": 1799.7
+      },
+      {
+        "id": 17,
+        "_id": "e301f02115dab907a8eeb95e5f4fba80",
+        "_id_Produto": "78cc57c9860be32cf063561f7265b43f",
+        "nome": "Product 9",
+        "descricao": "Description 9",
+        "codigo": "code9",
+        "marca": "Brand 9",
+        "modelo": "Model 9",
+        "categoria": "Category 9",
+        "quantidade": 20,
+        "preco": 199.99,
+        "fornecedor": "Supplier 9",
+        "dataAquisicao": "2023-07-13",
+        "localizacao": "Location 9",
+        "tag": "Tag 9",
+        "observacao": "",
+        "total": 3999.8
+      },
+      {
+        "id": 18,
+        "_id": "97e4d2d0a096d50e06f5744e1336172e",
+        "_id_Produto": "0a48c8d3c20e38c3e53555b767b9249a",
+        "nome": "Product 10",
+        "descricao": "Description 10",
+        "codigo": "code10",
+        "marca": "Brand 10",
+        "modelo": "Model 10",
+        "categoria": "Category 10",
+        "quantidade": 15,
+        "preco": 349.50,
+        "fornecedor": "Supplier 10",
+        "dataAquisicao": "2023-07-12",
+        "localizacao": "Location 10",
+        "tag": "Tag 10",
+        "observacao": "",
+        "total": 5242.5
+      },
+      {
+        "id": 19,
+        "_id": "0cd11e76bf28d43d7df5a771440317f0",
+        "_id_Produto": "1d4a4a8f52b7f2e7462e7da06c5e7b90",
+        "nome": "Product 11",
+        "descricao": "Description 11",
+        "codigo": "code11",
+        "marca": "Brand 11",
+        "modelo": "Model 11",
+        "categoria": "Category 11",
+        "quantidade": 10,
+        "preco": 999.99,
+        "fornecedor": "Supplier 11",
+        "dataAquisicao": "2023-07-11",
+        "localizacao": "Location 11",
+        "tag": "Tag 11",
+        "observacao": "",
+        "total": 9999.9
+      },
+      {
+        "id": 20,
+        "_id": "a899e6e31c9bc2b04be95a7a6776887b",
+        "_id_Produto": "b5742749a4d5fbc7ce33e7f65d8788e2",
+        "nome": "Product 12",
+        "descricao": "Description 12",
+        "codigo": "code12",
+        "marca": "Brand 12",
+        "modelo": "Model 12",
+        "categoria": "Category 12",
+        "quantidade": 5,
+        "preco": 499.00,
+        "fornecedor": "Supplier 12",
+        "dataAquisicao": "2023-07-10",
+        "localizacao": "Location 12",
+        "tag": "Tag 12",
+        "observacao": "",
+        "total": 2495
+      },
+      {
+        "id": 21,
+        "_id": "693cf2c4f518bf0eb5c98358a31201a0",
+        "_id_Produto": "cc95a9de658499a55f82fb961bf963d6",
+        "nome": "Product 13",
+        "descricao": "Description 13",
+        "codigo": "code13",
+        "marca": "Brand 13",
+        "modelo": "Model 13",
+        "categoria": "Category 13",
+        "quantidade": 12,
+        "preco": 149.90,
+        "fornecedor": "Supplier 13",
+        "dataAquisicao": "2023-07-09",
+        "localizacao": "Location 13",
+        "tag": "Tag 13",
+        "observacao": "",
+        "total": 1798.8
+      }    
+    ],
+    "categorias": [
+      {
+        "_id": "366c0de2a2f35351f72e92ffe2bdccef",
+        "nome": "Mercado"
+      },
+      {
+        "_id": "d032a22e66f33c72b8e5e9445aa60ee7",
+        "nome": "Moda"
+      },
+      {
+        "_id": "a1d8907132f07ffedee9f98bbf0779a5",
+        "nome": "Móveis"
+      },
+      {
+        "_id": "ae15a8d73b45700c5b39cc944869e8d6",
+        "nome": "Música e Shows"
+      },
+      {
+        "_id": "b2239d72681dd65d1550f67a5151f85d",
+        "nome": "Natal"
+      },
+      {
+        "_id": "81c855e7c1e5907461df94ab216ba850",
+        "nome": "Papelaria"
+      },
+      {
+        "_id": "ac5b82987fb46b839ccbf0e33e124d5e",
+        "nome": "Pet Shop"
+      },
+      {
+        "_id": "7b32f43ad8817756a343d85c805ad6a2",
+        "nome": "Religião e Espiritualidade"
+      },
+      {
+        "_id": "1cb648dd4c2c93a53dfdd23645bb1c96",
+        "nome": "Relógios"
+      },
+      {
+        "_id": "b74c61c1e48d4d8a018af9b75ec35f94",
+        "nome": "Saúde e Cuidados Pessoais"
+      },
+      {
+        "_id": "4b9fc40d11ed21e35b8a9d8c4a615a3e",
+        "nome": "Serviços"
+      },
+      {
+        "_id": "63c9b1576c285c23b59b7b10ffdb8816",
+        "nome": "Suplementos Alimentares"
+      },
+      {
+        "_id": "f49759ff4daea6e9c8286d6a4bb4c17e",
+        "nome": "Tablets, iPads e E-Readers"
+      },
+      {
+        "_id": "8a68c45be71c1e6f7cf0ce5f0b95be99",
+        "nome": "Telefonia Fixa"
+      },
+      {
+        "_id": "1d6b52b9f4b46522472a7217a59b2f8e",
+        "nome": "TV e Vídeo"
+      },
+      {
+        "_id": "b4cc9b9197321f6321a364c71c59e7fc",
+        "nome": "Utilidades Domésticas"
+      }
+    ],
+    "fornecedores": [
+      {
+        "_id": "366c0de2a2f35351f72e92ffe2bdccef",
+        "nome": "Atalanta"
+      },
+      {
+        "_id": "d032a22e66f33c72b8e5e9445aa60ee7",
+        "nome": "Praise"
+      },
+      {
+        "_id": "a1d8907132f07ffedee9f98bbf0779a5",
+        "nome": "Rockstar"
+      },
+      {
+        "_id": "ae15a8d73b45700c5b39cc944869e8d6",
+        "nome": "Amazon"
+      }
+    ],
+    "unidades": [
+      {
+        "_id": "366c0de2a2f35351f72e92ffe2bdccef",
+        "nome": "São Paulo"
+      },
+      {
+        "_id": "d032a22e66f33c72b8e5e9445aa60ee7",
+        "nome": "Perus"
+      },
+      {
+        "_id": "a1d8907132f07ffedee9f98bbf0779a5",
+        "nome": "São Vicente"
+      },
+      {
+        "_id": "ae15a8d73b45700c5b39cc944869e8d6",
+        "nome": "Barra funda"
+      }
+    ],
+    "tags": [
+      {
+        "_id": "366c0de2a2f35351f72e92ffe2bdccef",
+        "nome": "Embalagem"
+      },
+      {
+        "_id": "d032a22e66f33c72b8e5e9445aa60ee7",
+        "nome": "Veiculo"
+      },
+      {
+        "_id": "a1d8907132f07ffedee9f98bbf0779a5",
+        "nome": "Objeto"
+      },
+      {
+        "_id": "ae15a8d73b45700c5b39cc944869e8d6",
+        "nome": "Roupas"
+      }
+    ]
+  }

@@ -1,0 +1,24 @@
+// Cores Primárias
+$primary-blue: #1F3A93;
+$primary-green: #27AE60;
+
+// Cores Secundárias
+$secondary-dark-gray: #2C3E50;
+$secondary-light-gray: #ECF0F1;
+$secondary-yellow: #F1C40F;
+
+// Cores de Ação
+$action-light-green: #2ECC71;
+$action-red: #E74C3C;
+
+// Cores Neutras
+$neutral-white: #FFFFFF;
+$neutral-medium-gray: #BDC3C7;
+
+// Uso das cores em elementos
+$font-color-primary: $secondary-dark-gray;
+$background-color: $neutral-white;
+$button-confirm-background: $primary-green;
+$button-cancel-background: $action-red;
+$card-background: $secondary-light-gray;
+$alert-warning-background: $secondary-yellow;
