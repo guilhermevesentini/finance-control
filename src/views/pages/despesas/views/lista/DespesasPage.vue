@@ -2,7 +2,7 @@
   <el-row>
     <el-col :span="20">
       <el-row class="container_page" v-loading="loading">
-        <el-col :span="24" style="margin: 0.5rem 0;">
+        <el-col :span="24" style="margin: 0.5rem 0 1rem;">
           <el-row class="row-bg" justify="space-between">
             <el-col :span="8">
               <BreadCrumb name="Despesas" />
@@ -11,11 +11,10 @@
               <DatePeriodoPicker v-on:update:month-change="handlePeriodo" />
             </el-col>
             <el-col :span="8" style="display: flex;flex-wrap: wrap; justify-content: flex-end;">
-              <MenuSuperiorAcoes :btnCriarNovaDespesa="true" @clickCriarNovaDespesa="adicionarDespesa" />
+              <FCButtonIcon type="primary" circle v-on:handle-click="adicionarDespesa" :icon="Plus" />
             </el-col>
           </el-row>
         </el-col>
-        <el-divider></el-divider>
         <el-col :span="24">
           <TableFilterableFrame v-on:handle-editar="editarDespesa" v-on:handle-deletar="deletarDespesa"
             :produtos="perPeriodlistaDeDespesas">
@@ -34,7 +33,7 @@
               </el-table-column>
               <el-table-column label="Nome" prop="nome" />
               <el-table-column label="Descrição" prop="descricao" />
-              <el-table-column label="Vencimento" prop="vencimento" sortable>
+              <el-table-column label="Vencimento" prop="vencimento" width="150" sortable>
                 <template v-slot="scope">
                   {{ formatDate(scope.row.vencimento) }}
                 </template>
@@ -44,37 +43,51 @@
         </el-col>
       </el-row>
     </el-col>
-    <el-col :span="4" v-loading="loading">
-      <SideCardTotal label="Total despesas" :total="totalDeDespesas" />
-      <SideCardTotal label="Total pago" :total="totalPago" />
-      <SideCardTotal label="Total pendente" :total="totalPendente" />
+    <el-col :span="4">
+      <ResumoLateral v-loading="loading" label="Total despesas" :totalDeDespesas="totalDeDespesas"
+        :totalPago="totalPago" :totalPendente="totalPendente" />
     </el-col>
   </el-row>
+
+  <AdicionarDespesasWidget v-model="showDrawerAdicionar" v-on:handle-fechar="handleFecharDrawer" />
+  <EditarDespesasWidget v-model="showDrawerEditar" v-if="showDrawerEditar" v-on:handle-fechar="handleFecharDrawer"
+    :despesa="Despesa" />
 </template>
 
 <script lang="ts" setup>
 import { onMounted, ref, computed, onUnmounted } from "vue";
-import type { IDespesas, IDespesasModel } from "./types";
-import useFinanceHandler from "./composables/useFinanceHandler";
-import DespesasGatewayAdapters from "./services/adapters/DespesasGateway";
-import type { ICadastroItem } from "../cadastros/types";
-import DespesaController from "./composables/DespesaController";
+import { DespesaInitialState, type IDespesas, type IDespesasModel } from "../../types";
+import useFinanceHandler from "../../composables/useFinanceHandler";
+import { DespesaControllerDi, type IDespesaController } from "../../controller/DespesaController";
 import { formatCurrency, formatDate } from "@/utils/utils";
 import router from "@/router";
 import BreadCrumb from "@/components/shared/BreadCrumb.vue";
 import DatePeriodoPicker from "@/components/shared/DatePeriodoPicker.vue";
-import MenuSuperiorAcoes from "@/components/shared/MenuSuperiorAcoes.vue";
 import TableFilterableFrame from "@/components/shared/TableFilterableFrame.vue";
-import IconInsideTable from "./components/IconInsideTable.vue";
 import SideCardTotal from "@/components/shared/SideCardTotal.vue";
+import IconInsideTable from "./../../components/IconInsideTable.vue";
 import { container } from "@/inversify.config";
-import { despesasContainer } from "./container/despesasContainer";
-import { DespesasGatewayDi, type IDespesasGateway } from "./services/ports/DespesasGateway";
+import { DespesasGatewayDi, type IDespesasGateway } from "../../services/ports/DespesasGateway";
+import {
+  Plus
+} from '@element-plus/icons-vue';
+import FCButtonIcon from "@/components/buttons/Criar/FCButtonIcon.vue";
+import { despesasContainer } from "../../container/despesasContainer";
+import { despesasControllerContainer } from "../../controller/container/despesaControllerContainer";
+import AdicionarDespesasWidget from "../../widgets/adicionar/AdicionarDespesasWidget.vue";
+import EditarDespesasWidget from "../../widgets/editar/EditarDespesasWidget.vue";
+import ResumoLateral from "@/components/shared/ResumoLateral.vue";
 
 container.load(despesasContainer)
+container.load(despesasControllerContainer)
 
 const loading = ref(false);
-const despesaController = new DespesaController();
+const showDrawerAdicionar = ref(false);
+const showDrawerEditar = ref(false);
+
+const Despesa = ref<IDespesasModel>(DespesaInitialState);
+
+const despesaController = container.get<IDespesaController>(DespesaControllerDi);
 
 const listaDeDespesas = ref<IDespesas[]>([]);
 
@@ -94,7 +107,7 @@ const totalDeDespesas = computed(() => {
 
 const totalPago = computed(() => {
   const findDespesasPagas = perPeriodlistaDeDespesas.value.filter(despesa => {
-    if (despesa.status == 'Sim') {
+    if (despesa.status == '1') {
       return despesa
     }
   })
@@ -106,7 +119,7 @@ const totalPendente = computed(() => {
   const despesas = perPeriodlistaDeDespesas.value;
 
   const findDespesasPagas = despesas.filter(despesa => {
-    if (despesa.status == 'Não') {
+    if (despesa.status == '2') {
       return despesa
     }
   })
@@ -115,11 +128,23 @@ const totalPendente = computed(() => {
 })
 
 const adicionarDespesa = () => {
-  router.push('/Despesas/Adicionar_Despesa')
+  showDrawerAdicionar.value = true;
 }
 
-const editarDespesa = ((produto: ICadastroItem) => {
-  router.push({ path: `/Despesas/Editar_Despesa/${produto.id}/${produto.despesaId}` });
+const editarDespesa = ((produto: unknown) => {
+  Despesa.value = DespesaInitialState
+
+  if (produto) {
+    Despesa.value = produto as IDespesasModel
+    showDrawerEditar.value = true;
+  }
+})
+
+const handleFecharDrawer = (async () => {
+  showDrawerAdicionar.value = false;
+  showDrawerEditar.value = false;
+
+  await obterDespesas()
 })
 
 const deletarDespesa = async (productId: string) => {
@@ -168,6 +193,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   container.unload(despesasContainer)
+  container.unload(despesasControllerContainer)
 })
 </script>
 

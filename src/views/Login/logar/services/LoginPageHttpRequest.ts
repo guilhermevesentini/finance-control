@@ -31,13 +31,13 @@ export default class LoginPageHttpRequest implements ILoginPageGateway {
         return response.data;
     }
 
-    async obterSenha(usuario: string): Promise<string | undefined> {
-        const response = await this.httpClient.get<string | undefined>({
+    async obterUsuario(usuario: string): Promise<IResponseLoginValidation | undefined> {
+        const response = await this.httpClient.get<IResponseLoginValidation[] | undefined>({
             url: `http://localhost:3001/users?username=${usuario}`
         });
         
         if (!response.status || !response?.data) return
 
-        return response?.data;
+        return response.data[0];
     }
 }

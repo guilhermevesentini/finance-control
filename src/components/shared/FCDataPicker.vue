@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<IProps>(), {
 const internalValue = ref(props.modelValue);
 
 const emit = defineEmits<{
-  (event: "update:modelValue", value: string | undefined): void;
+  (event: "update:modelValue", value: string): void;
 }>();
 
 watch(

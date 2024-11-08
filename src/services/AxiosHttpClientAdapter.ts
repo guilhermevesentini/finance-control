@@ -1,6 +1,6 @@
 import axios from "axios";
 import { injectable } from "inversify";
-import type { DeleteHttpClientParams, GetHttpClientParams, HttpClient, IHttpResponse, PostHttpClientParams } from "./httpClient";
+import type { DeleteHttpClientParams, GetHttpClientParams, HttpClient, IHttpResponse, PatchHttpClientParams, PostHttpClientParams, PutHttpClientParams } from "./httpClient";
 import "reflect-metadata"
 
 @injectable()
@@ -12,20 +12,31 @@ export class AxiosHttpClientAdapter implements HttpClient {
 
         return response
     }
-    async post<T>(params: PostHttpClientParams): Promise<IHttpResponse<T>> {
-        const response = await axios.get(params.url, {
-            params: params.body
-        })
+    
+    async post<T>(params: PostHttpClientParams): Promise<IHttpResponse<T>> {    
+        const request = await axios.post(params.url, params.body);
+    
+        return {
+          status: request.status,
+          data: request.data,
+        };
+      }
 
-        return response
+    async put<T>(params: PutHttpClientParams): Promise<IHttpResponse<T>> {
+        const response = await axios.put<T>(params.url, params.data);
+        
+        return {
+            status: response.status,
+            data: response.data,
+        };
     }
-    put<T>(params: unknown): Promise<IHttpResponse<T>> {
-        console.log(params)
-        throw new Error("Method not implemented.");
-    }
-    patch<T>(params: unknown): Promise<IHttpResponse<T>> {
-        console.log(params)
-        throw new Error("Method not implemented.");
+    async patch<T>(params: PatchHttpClientParams): Promise<IHttpResponse<T>> {
+        const response = await axios.patch<T>(params.url, params.data);
+
+        return {
+            status: response.status,
+            data: response.data,
+        };
     }
     async delete<T>(params: DeleteHttpClientParams): Promise<IHttpResponse<T>> {
         const response = await axios.delete(params.url, {

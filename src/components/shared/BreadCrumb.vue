@@ -1,16 +1,11 @@
 <template>
-    <div class="breadcrumb">{{ props.name }}</div>
+    <div class="breadcrumb">{{ name }}</div>
 </template>
 
 <script setup lang="ts">
 import { defineProps } from 'vue';
 
-const props = defineProps({
-    name: {
-        type: String,
-        default: ""
-    }
-});
+defineProps<{ name: string }>();
 
 </script>
 

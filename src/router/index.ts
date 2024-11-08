@@ -5,19 +5,18 @@ import BaseLayout from '@/views/Layout/BaseLayout.vue';
 import { isAuthenticated } from '@/views/Login/auth';
 import { dashboardPaths } from './dashboard/dashboardPath';
 import { despesasPaths } from './despesas/despesasPath';
-import { cadastrosPaths } from './cadastros/cadastrosPath';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/login', component: Login },
   { path: '/novoUsuario', component: ResgistrarUsuario },
   { 
-    path: '/', redirect: '/login',
+    path: '/', 
+    redirect: '/login',
     component: BaseLayout,
     meta: { requiresAuth: true },
     children: [
       ...dashboardPaths,
-      ...despesasPaths,
-      ...cadastrosPaths
+      ...despesasPaths
     ]
   }
 ];

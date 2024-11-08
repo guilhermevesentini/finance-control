@@ -71,7 +71,7 @@ const handleCriar = () => {
 }
 
 const handleEsqueciSenha = async () => {
-  const result = await LoginPageGateway.obterSenha(formulario.username);
+  //const result = await LoginPageGateway.obterSenha(formulario.username);
 
   // if (!result) {
   //   ElNotification({
@@ -124,13 +124,18 @@ const validarUsuario = async (formulario: IRuleLoginForm) => {
       localStorage.setItem('token', token);
     }
 
-    const usuario: ILoginUser = {
-      _id: usuarioResponse?._id,
-      id: usuarioResponse?.id,
-      username: formulario.username,
+    const usuarioInfo = await LoginPageGateway.obterUsuario(formulario.username);
+
+    if (usuarioInfo) {
+      const usuario: ILoginUser = {
+        _id: usuarioInfo._id,
+        id: usuarioInfo?.id,
+        username: usuarioInfo.username,
+      }
+
+      localStorage.setItem('user', JSON.stringify(usuario));
     }
 
-    localStorage.setItem('user', JSON.stringify(usuario));
 
     if (lembrar.value) {
       const info = {
@@ -141,7 +146,7 @@ const validarUsuario = async (formulario: IRuleLoginForm) => {
     }
 
     setTimeout(() => {
-      router.push({ path: `/Despesas` });
+      router.push({ path: `/Despesas/overview` });
       loading.value = false;
     }, 2000)
   } catch (err) {

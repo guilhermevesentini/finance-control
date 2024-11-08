@@ -1,4 +1,5 @@
 <template>
+  <slot name="button"></slot>
   <el-button plain v-if="props.btnVoltar" @click="HandleVoltar" :icon="TopLeft" round></el-button>
   <el-button plain v-if="props.btnLimpar" @click="HandleLimpar" :icon="Brush" round></el-button>
   <el-button type="primary" plain v-if="btnSalvar" @click="HandleSalvar" :icon="Plus" round></el-button>

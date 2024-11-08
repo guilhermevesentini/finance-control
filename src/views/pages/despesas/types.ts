@@ -1,12 +1,12 @@
 export interface IDespesasModel {
   status: string
-  valor: number
+  valor: string
   nome: string
   descricao: string  
-  vencimento: string
-  previsao: string
+  vencimento: Date | undefined
   recorrente: string | null
   frequencia: string
+  replicar: boolean
   observacao: string
   ano: number
   costumerId: {
@@ -18,20 +18,21 @@ export interface IDespesasModel {
 
 export interface IDespesaMeses {
   ano: number
-  valor: number
+  valor: string
   status: string
   descricao: string  
   despesaId: string
-  vencimento: string;
+  vencimento: Date | undefined;
   observacao: string
 }
 
 export interface IDespesas {
   id: string;
-  nome: string;    
-  previsao: string
+  nome: string;
   recorrente: string | null
+  vencimento: Date | undefined
   frequencia: string
+  replicar: boolean
   meses: IDespesaMeses[] | [];
   costumerId: {
       id: string
@@ -40,18 +41,18 @@ export interface IDespesas {
 
 export const DespesaInitialState = {
   id: '',
-    costumerId: {
-        id: ''
-    },
-    status: '',
-    previsao: '',
-    ano: 0,
-    nome: '',
-    descricao: '',
-    valor: 0,
-    recorrente: null,
-    vencimento: '',
-    frequencia: '',
-    observacao: '',
-    meses: []
+  costumerId: {
+      id: ''
+  },
+  status: '',
+  ano: 0,
+  nome: '',
+  descricao: '',
+  replicar: false,
+  valor: '0.00',
+  recorrente: null,
+  vencimento: new Date(),
+  frequencia: '',
+  observacao: '',
+  meses: []
 }

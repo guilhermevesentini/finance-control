@@ -1,5 +1,9 @@
 <template>
   <el-row class="side-card">
+    <h4>Relatório</h4>
+
+    <h4></h4>
+
     <label>{{ label }}</label>
     <p>{{ total }}</p>
   </el-row>

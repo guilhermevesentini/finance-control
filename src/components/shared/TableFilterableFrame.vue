@@ -1,13 +1,9 @@
 <template>
-    <el-table :data="produtosFiltrados" style="width: 100%" empty-text="Sem Valores" v-loading="isLoading"
-        :default-sort="{ prop: 'previsao', order: 'ascending' }">
+    <el-input v-model="filtroAtual" clearable placeholder="Digite aqui..." :suffix-icon="Search"></el-input>
+    <el-table :data="produtosFiltrados" style="width: 100%; margin-top: 10px;" empty-text="Sem Valores"
+        v-loading="isLoading" :default-sort="{ prop: 'vencimento', order: 'ascending' }">
         <slot name="tableCollumn"></slot>
-        <el-table-column align="right" width="180">
-            <template #header>
-                <el-input v-model="filtroAtual" size="small" clearable placeholder="Digite aqui..."
-                    :suffix-icon="Search" />
-            </template>
-
+        <el-table-column align="right" width="80">
             <template #default="scope">
                 <el-button small title="editar" :icon="Edit" link @click="handleEditar(scope.row)" />
                 <el-button small type="danger" title="Deletar" :icon="Delete" link
@@ -56,12 +52,12 @@ const handlePageChange = (newPage: number) => {
 };
 
 const emits = defineEmits<{
-    (event: "handleEditar", params: ICadastroItem): ICadastroItem;
+    (event: "handleEditar", params: unknown): unknown;
     (event: "handleDeletar", id: string): string;
 }>();
 
 
-const handleEditar = (params: ICadastroItem) => {
+const handleEditar = (params: unknown) => {
     emits('handleEditar', params);
 }
 const handleDeletar = (id: string) => {

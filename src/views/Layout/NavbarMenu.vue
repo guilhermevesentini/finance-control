@@ -4,6 +4,8 @@
       <img :src="logo"> Finance Control
     </el-menu-item>
     <div class="flex-grow" />
+    <span>{{ nomeUsuario }}</span>
+    <div class="flex-grow" />
     <el-switch v-model="thema" inline-prompt :active-icon="Sunny" :inactive-icon="Moon" @click="toggleTheme" />
     <el-dropdown trigger="click" class="menu">
       <span class="el-dropdown-link">
@@ -31,12 +33,13 @@ import {
   Sunny,
   Moon
 } from '@element-plus/icons-vue'
-import { ref } from "vue";
+import { onMounted, reactive, ref } from "vue";
 
 const thema = ref(true);
 
+const nomeUsuario = ref('')
+
 const handleSelect = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
   router.push({ path: `/` });
 }
 
@@ -49,6 +52,13 @@ const toggleTheme = () => {
   const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', theme);
 };
+
+onMounted(() => {
+  const storage = localStorage.getItem('user')
+  const usuario = storage ? JSON.parse(storage) : {};
+
+  nomeUsuario.value = usuario.username || 'user';
+})
 </script>
 
 <style lang="scss" scoped>

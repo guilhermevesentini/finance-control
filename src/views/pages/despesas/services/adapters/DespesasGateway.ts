@@ -8,9 +8,9 @@ export default class DespesasGatewayAdapters implements IDespesasGateway {
     @inject(httpClientDI) private readonly httpClient!: HttpClient
 
     async salvarDespesa(despesa: IDespesas): Promise<boolean> {
-        const response = await this.httpClient.post<boolean>({
+        const response = await this.httpClient.put<boolean>({
             url: `http://localhost:3001/despesas/${despesa.id}`,
-            body: despesa 
+            data: despesa 
         });
 
         if (response.status != 200) return false
@@ -29,6 +29,8 @@ export default class DespesasGatewayAdapters implements IDespesasGateway {
     }
 
     async criarDespesa(despesa: IDespesas): Promise<boolean> {
+        console.log('criarDespesa', despesa);
+        
         const response = await this.httpClient.post<boolean>({
             url: `http://localhost:3001/despesas`,
             body: despesa

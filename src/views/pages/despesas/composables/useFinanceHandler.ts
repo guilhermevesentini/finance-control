@@ -2,8 +2,10 @@ import { formatCurrency } from "@/utils/utils";
 
 export default function useFinanceHandler() {
 
-    const sumTotal = <T extends { valor: number }>(lista: T[]): number => {
-        return lista.reduce((acc, item) => acc + item.valor, 0);
+    const sumTotal = <T extends { valor: string | number }>(lista: T[]): number => {
+        console.log(lista);
+        
+        return lista.reduce((acc, item) => acc + Number(item.valor), 0);
     };
     
     const defineStatus = (value: string) => {
@@ -17,7 +19,7 @@ export default function useFinanceHandler() {
         }
     }
 
-    const obterTotal = <T extends { valor: number }>(lista: T[]): string => {
+    const obterTotal = <T extends { valor: string | number }>(lista: T[]): string => {
         const totalReais = sumTotal(lista);
         return formatCurrency(totalReais);
     };

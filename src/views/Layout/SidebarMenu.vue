@@ -35,7 +35,7 @@ import {
 
 const routeIndexMapping: { [key: string]: string } = {
   '/Dashboard': '1',
-  '/Despesas': '2',
+  '/Despesas/overview': '2',
   '/Cadastros': '8',
 };
 
