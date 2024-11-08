@@ -4,8 +4,6 @@
   </i>
 </template>
 <script lang="ts" setup>
-import { defineProps } from 'vue';
-
 interface IProps {
   name: string
   title: string

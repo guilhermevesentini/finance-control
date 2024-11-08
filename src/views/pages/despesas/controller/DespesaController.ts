@@ -8,7 +8,7 @@ export const DespesaControllerDi = Symbol("DespesaControllerDi")
 export interface IDespesaController {
     buildDespesasByMonth(despesasList: IDespesas[], periodo: number): IDespesasModel[]
     buildDespesa(despesasList: IDespesas, despesaId: string): IDespesasModel
-    buildDespesaToSave(despesasList: IDespesasModel): IDespesasModel | IDespesas
+    buildDespesaToSave(despesasList: IDespesasModel | IDespesas, id: string): IDespesasModel | IDespesas
     obterDespesasDoUsuario(despesasList: IDespesas[]): IDespesas | IDespesas[]
 }
 
@@ -16,9 +16,7 @@ export interface IDespesaController {
 export default class DespesaController implements IDespesaController {
     @inject(AdicionarDespesaControllerDi) private readonly criarDespesa!: IAdicionarDespesaController
 
-    private Despesas: IDespesasModel[];
-
-    constructor() { this.Despesas = []}
+    constructor() { }
 
     obterDespesasDoUsuario(despesasList: IDespesas[]): IDespesas[] | [] {
         const storage = localStorage.getItem('user')
@@ -53,7 +51,7 @@ export default class DespesaController implements IDespesaController {
                                 status: mes.status || '2',
                                 valor: mes.valor || '0.00',
                                 nome: despesa.nome || '',
-                                descricao: mes.descricao || '',  
+                                descricao: mes.descricao || '',
                                 vencimento: mes.vencimento,
                                 recorrente: despesa.recorrente || '1',
                                 frequencia: despesa.frequencia,
@@ -101,35 +99,33 @@ export default class DespesaController implements IDespesaController {
         return despesa
     }
 
-    buildSingleDespesa(despesasList: IDespesasModel): IDespesas {
-        const despesa = {
-            id: despesasList.id || '',
-            nome: despesasList.nome || '',
-            recorrente: despesasList.recorrente || '1',
-            frequencia: despesasList.frequencia,
-            vencimento: despesasList.vencimento,
-            replicar: despesasList.replicar || false,
-            meses: [
-                {
-                    status: despesasList?.status || '2',
-                    valor: despesasList?.valor || '0.00',
-                    descricao: despesasList?.descricao || '',  
-                    vencimento: despesasList?.vencimento || undefined,
-                    ano: despesasList?.ano || 0,
-                    despesaId: despesasList?.despesaId || '',
-                    observacao: despesasList?.observacao || '',
-                }
-            ],
+    buildSingleDespesa(despesa: IDespesasModel, id: string): IDespesas {
+        const despesaEditada: IDespesas = {
+            id: despesa.id || '',
+            nome: despesa.nome || '',
+            recorrente: despesa.recorrente || '1',
+            frequencia: despesa.frequencia,
+            vencimento: despesa.vencimento,
+            replicar: despesa.replicar || false,
+            meses: [{
+                ano: despesa.ano || 0,
+                descricao: despesa.descricao || '',
+                despesaId: despesa.despesaId || '',
+                observacao: despesa.observacao || '',
+                status: despesa.status || '2',
+                valor: despesa.valor || '0.00',
+                vencimento: despesa.vencimento || new Date(),
+            }],
             costumerId: {
-                id: despesasList?.costumerId?.id || ''
+                id: despesa?.costumerId?.id || ''
             },
             
         }
 
-        return despesa
+        return despesaEditada
     }
 
-    buildMultiDespesas(despesasList: IDespesasModel): IDespesasModel {
+    buildMultiDespesas(despesasList: IDespesasModel): IDespesasModel {        
         const despesa = {
             id: despesasList.id || '',
             nome: despesasList.nome || '',
@@ -142,6 +138,7 @@ export default class DespesaController implements IDespesaController {
             status: despesasList.status || '2',
             descricao: despesasList.descricao || '',
             observacao: despesasList.observacao || '',
+            despesaId: despesasList.despesaId || '',
             meses: despesasList.recorrente == '1' ? this.criarDespesa.criarMeses(despesasList) : this.criarDespesa.criarMes(despesasList),
             costumerId: {
                 id: despesasList?.costumerId?.id || ''
@@ -152,15 +149,15 @@ export default class DespesaController implements IDespesaController {
         return despesa
     }
 
-    buildDespesaToSave(despesasList: IDespesasModel): IDespesasModel | IDespesas {        
+    buildDespesaToSave(despesasList: IDespesasModel | IDespesas, id: string): IDespesasModel | IDespesas {        
         if (despesasList.replicar) {
-            const despesas = this.buildMultiDespesas(despesasList)
-
-            return despesas
-        } else {
-            const despesa = this.buildSingleDespesa(despesasList)
+            const despesa = this.buildSingleDespesa(despesasList as IDespesasModel, id)
 
             return despesa
-        }
+        } 
+        
+        const despesas = this.buildMultiDespesas(despesasList as IDespesasModel)
+
+        return despesas
     }
 }

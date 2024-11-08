@@ -130,23 +130,18 @@ const emits = defineEmits<{
   (event: "handleFechar"): void;
 }>();
 
-const salvarDespesas = async (novaDespesa: IDespesas) => {
-  const response = despesasGateway.salvarDespesa(novaDespesa);
-
-  if (!response) return
-
-  ElNotification({
-    title: 'success',
-    message: 'Despesa criada com sucesso.',
-    type: 'success',
-    duration: 2000
-  })
-}
-
 const Salvar = (async () => {
-  const buildEmpresa = despesaController.buildDespesaToSave(despesa.value)
+  let response = undefined;
 
-  const response = await despesasGateway.salvarDespesa(buildEmpresa as IDespesas);
+  if (!despesa.value.replicar) {
+    const buildEmpresa = despesaController.buildDespesaToSave(despesa.value, despesa.value.despesaId)
+
+    response = await despesasGateway.salvarDespesa(buildEmpresa as IDespesasModel, despesa.value.despesaId);
+  } else {
+    const buildEmpresa = despesaController.buildDespesaToSave(despesa.value, despesa.value.despesaId)
+
+    response = await despesasGateway.salvarDespesas(buildEmpresa as IDespesas);
+  }
 
   if (!response) return ElNotification({
     title: 'Error',

@@ -1,5 +1,5 @@
 import type { IDespesasGateway } from "../ports/DespesasGateway";
-import type { IDespesas } from "../../types";
+import type { IDespesas, IDespesasModel } from "../../types";
 import { inject, injectable } from "inversify";
 import { httpClientDI, type HttpClient } from "@/services/httpClient";
 
@@ -7,7 +7,18 @@ import { httpClientDI, type HttpClient } from "@/services/httpClient";
 export default class DespesasGatewayAdapters implements IDespesasGateway {
     @inject(httpClientDI) private readonly httpClient!: HttpClient
 
-    async salvarDespesa(despesa: IDespesas): Promise<boolean> {
+    async salvarDespesa(despesa: IDespesasModel, despesaId: string): Promise<boolean> {
+        const response = await this.httpClient.put<boolean>({
+            url: `http://localhost:3001/despesas/${despesa.id}/${despesaId}`,
+            data: despesa 
+        });
+
+        if (response.status != 200) return false
+
+        return true  
+    } 
+
+    async salvarDespesas(despesa: IDespesas): Promise<boolean> {
         const response = await this.httpClient.put<boolean>({
             url: `http://localhost:3001/despesas/${despesa.id}`,
             data: despesa 

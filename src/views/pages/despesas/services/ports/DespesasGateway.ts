@@ -1,7 +1,8 @@
-import type { IDespesas } from "../../types"
+import type { IDespesas, IDespesasModel } from "../../types"
 
 export interface IDespesasGateway {
-    salvarDespesa(despesa: IDespesas): Promise<boolean | undefined>
+    salvarDespesa(despesa: IDespesasModel, despesaId: string): Promise<boolean | undefined>
+    salvarDespesas(despesa: IDespesas): Promise<boolean | undefined>
     obterDespesaById(id: string):  Promise<IDespesas | undefined>
     obterDespesas(): Promise<IDespesas[] | undefined>
     excluirDespesa(id: string): Promise<boolean>

@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import type { ICategorias } from "@/@types/types";
-import { ref, watch, defineProps, defineEmits, reactive, watchEffect } from "vue";
+import { ref, watch, reactive, watchEffect } from "vue";
 
 let categoriasList: ICategorias[] = reactive([]);
 

@@ -60,11 +60,9 @@ import { DespesaInitialState, type IDespesas, type IDespesasModel } from "../../
 import useFinanceHandler from "../../composables/useFinanceHandler";
 import { DespesaControllerDi, type IDespesaController } from "../../controller/DespesaController";
 import { formatCurrency, formatDate } from "@/utils/utils";
-import router from "@/router";
 import BreadCrumb from "@/components/shared/BreadCrumb.vue";
 import DatePeriodoPicker from "@/components/shared/DatePeriodoPicker.vue";
 import TableFilterableFrame from "@/components/shared/TableFilterableFrame.vue";
-import SideCardTotal from "@/components/shared/SideCardTotal.vue";
 import IconInsideTable from "./../../components/IconInsideTable.vue";
 import { container } from "@/inversify.config";
 import { DespesasGatewayDi, type IDespesasGateway } from "../../services/ports/DespesasGateway";

@@ -15,7 +15,6 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { defineProps, defineEmits } from 'vue';
 import {
   Plus,
   TopLeft,

@@ -15,7 +15,7 @@ import {
   ArrowLeft,
   ArrowRight
 } from '@element-plus/icons-vue';
-import { computed, ref, defineEmits } from 'vue';
+import { computed, ref } from 'vue';
 import dayjs from 'dayjs'
 
 interface IMonthsNames {

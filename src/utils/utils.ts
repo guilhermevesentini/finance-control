@@ -3,13 +3,22 @@ import type { Ref } from 'vue';
 
 dayjs.locale('pt-br');
 
+const obterIdUsuario = (): string | undefined => {
+  const storage = localStorage.getItem('user')
+
+  if (!storage) return
+
+  const usuarioId = JSON.parse(storage);
+
+  return usuarioId._id
+}
+
 const removerAcentos = (texto: string) => {
   return texto
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 }
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const filtrarItems = (lista: any[], filtroAtual: Ref<string>, currentPage: Ref<number>, itemsPerPage: Ref<number>) => {
   try {
@@ -76,18 +85,14 @@ const currencyToInt = (value: string | number): number => {
   return parseFloat(value.toFixed(2));
 };
 
-
-
 const formatToCurrency = (value: string | number): string => {
-    const numberValue = typeof value === 'string' ? parseFloat(value) / 100 : value / 100;
-    return numberValue.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
-  };
+  const numberValue = typeof value === 'string' ? parseFloat(value) / 100 : value / 100;
+  return numberValue.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+};
   
-  import { unformat } from "v-money3";
-
 const parseToInt = (value: string): number => {
   // Se o valor estiver vazio, retornar 0
   if (!value) {
@@ -116,6 +121,7 @@ const parseToInt = (value: string): number => {
 };
 
 export {
+  obterIdUsuario,
   removerAcentos,
   formatDate,
   formatCurrency,

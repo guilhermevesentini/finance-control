@@ -24,25 +24,19 @@
   ],
   "despesas": [
     {
-      "id": "a37e81de281b1977150e46a64c5925af",
+      "id": "a0dac9f31a8df18574c1d695e566c0de",
       "nome": "aluguel",
+      "vencimento": "2024-11-08T23:12:55.142Z",
       "recorrente": "2",
-      "frequencia": "2",
-      "vencimento": "2024-11-08T03:00:00.000Z",
-      "ano": 2024,
-      "replicar": true,
-      "valor": "2",
-      "status": "1",
-      "descricao": "casa",
-      "observacao": "",
+      "frequencia": "1",
       "meses": [
         {
-          "valor": "1938.50",
+          "valor": "200.00",
           "ano": 2024,
-          "status": "1",
-          "descricao": "casa",
-          "despesaId": "010a9d788cb034ab2e8220b941c8fe0a",
-          "vencimento": "2024-11-08T03:00:00.000Z",
+          "status": "2",
+          "descricao": "aluguel",
+          "despesaId": "cd0bbbb4140652972c654a3729d55319",
+          "vencimento": "2024-11-08T23:12:55.142Z",
           "observacao": ""
         }
       ],
@@ -51,149 +45,21 @@
       }
     },
     {
-      "id": "47339da04956a5d901e90f1bbd9e3472",
+      "id": "c18e401fc03a285c361a37a77a16bce4",
       "nome": "luz",
       "recorrente": "1",
       "frequencia": "1",
-      "vencimento": "2024-11-08T21:03:43.417Z",
-      "meses": [
-        {
-          "valor": "148.00",
-          "ano": 2024,
-          "status": "2",
-          "descricao": "casa",
-          "despesaId": "345d374bfb64e773e513a8baccd1a3db",
-          "vencimento": "2024-11-08T03:00:00.000Z",
-          "observacao": ""
-        },
-        {
-          "valor": "148.00",
-          "ano": 2024,
-          "status": "2",
-          "descricao": "casa",
-          "despesaId": "0d3b0e8f28d90fff1deb20889bf554d3",
-          "vencimento": "2024-12-08T03:00:00.000Z",
-          "observacao": ""
-        }
-      ],
-      "costumerId": {
-        "id": "ae77fa5b2fc1d3fa8b42194638f7d938"
-      }
-    },
-    {
-      "id": "538a9ae345b39021ff0e2e50bfa5265c",
-      "nome": "gas",
-      "recorrente": "1",
-      "frequencia": "1",
-      "vencimento": "2024-11-08T21:07:02.970Z",
-      "meses": [
-        {
-          "valor": "25.00",
-          "ano": 2024,
-          "status": "2",
-          "descricao": "casa",
-          "despesaId": "08bfe32dedeccfee4d3de7daf8509a16",
-          "vencimento": "2024-11-08T03:00:00.000Z",
-          "observacao": ""
-        },
-        {
-          "valor": "25.00",
-          "ano": 2024,
-          "status": "2",
-          "descricao": "casa",
-          "despesaId": "09c59daa4bf56adacbcce79fc6736f43",
-          "vencimento": "2024-12-08T03:00:00.000Z",
-          "observacao": ""
-        }
-      ],
-      "costumerId": {
-        "id": "ae77fa5b2fc1d3fa8b42194638f7d938"
-      }
-    },
-    {
-      "id": "d31888201ddb1852f0b59308541a4db0",
-      "nome": "cartão",
-      "recorrente": "1",
-      "frequencia": "1",
-      "vencimento": "2024-11-08T21:09:29.998Z",
-      "meses": [
-        {
-          "valor": "358.00",
-          "ano": 2024,
-          "status": "1",
-          "descricao": "gui",
-          "despesaId": "fdcf4f30e135d5a4494d59ed80dcc0be",
-          "vencimento": "2024-11-08T03:00:00.000Z",
-          "observacao": ""
-        },
-        {
-          "valor": "358.00",
-          "ano": 2024,
-          "status": "1",
-          "descricao": "gui",
-          "despesaId": "0825bdd01c7b71de409b6e3435a74de7",
-          "vencimento": "2024-12-08T03:00:00.000Z",
-          "observacao": ""
-        }
-      ],
-      "costumerId": {
-        "id": "ae77fa5b2fc1d3fa8b42194638f7d938"
-      }
-    },
-    {
-      "id": "601a4ab37dcd28d6dc08c96111e3d56a",
-      "nome": "Cartão Porto",
-      "recorrente": "1",
-      "frequencia": "1",
-      "vencimento": "2024-11-20T03:00:00.000Z",
-      "meses": [
-        {
-          "valor": "500.00",
-          "ano": 2024,
-          "status": "2",
-          "descricao": "crédito",
-          "despesaId": "198a1a643add720682e30a0bb225c8e5",
-          "vencimento": "2024-11-20T03:00:00.000Z",
-          "observacao": ""
-        },
-        {
-          "valor": "500.00",
-          "ano": 2024,
-          "status": "2",
-          "descricao": "crédito",
-          "despesaId": "b7eacd22e232e176dd255aeba571e949",
-          "vencimento": "2024-12-20T03:00:00.000Z",
-          "observacao": ""
-        }
-      ],
-      "costumerId": {
-        "id": "ae77fa5b2fc1d3fa8b42194638f7d938"
-      }
-    },
-    {
-      "id": "789b70c718710d2350db95f62996c1e5",
-      "nome": "teste 3",
-      "recorrente": "1",
-      "frequencia": "1",
       "vencimento": "2024-11-08T03:00:00.000Z",
+      "replicar": true,
       "meses": [
         {
-          "valor": "60.00",
           "ano": 2024,
+          "descricao": "luz",
+          "despesaId": "22def70c332b58ab1d5b45c2b28315f0",
+          "observacao": "",
           "status": "2",
-          "descricao": "adawd",
-          "despesaId": "460486e30b854a397e559d31625d949e",
-          "vencimento": "2024-11-08T03:00:00.000Z",
-          "observacao": ""
-        },
-        {
-          "valor": "60.00",
-          "ano": 2024,
-          "status": "2",
-          "descricao": "adawd",
-          "despesaId": "ac0db2b845a324ab6f83942551b0f299",
-          "vencimento": "2024-12-08T03:00:00.000Z",
-          "observacao": ""
+          "valor": "150.00",
+          "vencimento": "2024-11-08T03:00:00.000Z"
         }
       ],
       "costumerId": {

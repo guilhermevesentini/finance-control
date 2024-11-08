@@ -10,9 +10,9 @@ export interface IDespesasModel {
   observacao: string
   ano: number
   costumerId: {
-      id: string
+    id: string
   }
-  despesaId?: string
+  despesaId: string
   id: string
 }
 
@@ -35,11 +35,11 @@ export interface IDespesas {
   replicar: boolean
   meses: IDespesaMeses[] | [];
   costumerId: {
-      id: string
+    id: string
   }
 }
 
-export const DespesaInitialState = {
+export const DespesaInitialState: IDespesasModel = {
   id: '',
   costumerId: {
       id: ''
@@ -54,5 +54,5 @@ export const DespesaInitialState = {
   vencimento: new Date(),
   frequencia: '',
   observacao: '',
-  meses: []
+  despesaId: ''
 }

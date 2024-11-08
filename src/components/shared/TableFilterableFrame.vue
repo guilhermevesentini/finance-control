@@ -24,7 +24,7 @@ import {
 } from '@element-plus/icons-vue'
 import { filtrarItems } from '@/utils/utils';
 import { Search } from '@element-plus/icons-vue'
-import { computed, ref, defineProps, defineEmits } from 'vue';
+import { computed, ref } from 'vue';
 
 const props = defineProps<{
     produtos: unknown[];

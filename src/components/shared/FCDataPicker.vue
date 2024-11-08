@@ -5,7 +5,7 @@
 
 <script setup lang="ts">
 import { EDateFormat } from '@/@types/dateTypes';
-import { ref, watch, defineProps, withDefaults } from 'vue';
+import { ref, watch, withDefaults } from 'vue';
 
 interface IProps {
   format?: string;
