@@ -11,13 +11,19 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "isolatedModules": true,
-    "types": ["element-plus/global", "reflect-metadata", "vite/client", "vitest/globals",],
+    "types": [
+      "element-plus/global",
+      "reflect-metadata",
+      "vite/client",
+      "vitest",
+      "vitest/globals"
+    ],
     "pretty": true,
     "sourceMap": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "./dist",
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
   },
   "files": [],
   "references": [

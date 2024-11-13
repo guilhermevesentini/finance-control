@@ -3,12 +3,14 @@ const jsonServer = require("json-server");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
+const fs = require("fs");
+const path = require("path");
 
 const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 
 server.use(express.json());
-server.use(cors()); // Adicione essa linha antes de todas as rotas
+server.use(cors());
 
 const SECRET_KEY = "mysecretkey";
 
@@ -20,7 +22,8 @@ function verifyToken(token) {
   return jwt.verify(token, SECRET_KEY);
 }
 
-server.post("http://localhost:8081/#/api/login", (req, res) => {
+// Endpoint de login
+server.post("/api/login", (req, res) => {
   const { username, password } = req.body;
 
   const user = router.db.get("users").find({ username }).value();
@@ -36,10 +39,36 @@ server.post("http://localhost:8081/#/api/login", (req, res) => {
   }
 
   const token = createToken(username);
-
   res.json({ token });
 });
 
+server.post("/delete-despesa", (req, res) => {
+  console.log("/despesas/:despesaId/meses/:mesId");
+  const { despesaId, mesId } = req.body; // Mudança aqui: Use req.body ao invés de req.params.
+  const dbPath = path.join(__dirname, "db.json");
+  const dbData = JSON.parse(fs.readFileSync(dbPath, "utf-8"));
+
+  const despesa = dbData.despesas.find((d) => d.id === despesaId);
+
+  if (!despesa) {
+    res.status(404).json({ error: "Despesa não encontrada." });
+    return;
+  }
+
+  const mesesAtualizados = despesa.meses.filter((mes) => mes.id !== mesId);
+
+  if (mesesAtualizados.length === despesa.meses.length) {
+    res.status(404).json({ error: "Mês não encontrado." });
+    return;
+  }
+
+  despesa.meses = mesesAtualizados;
+
+  fs.writeFileSync(dbPath, JSON.stringify(dbData, null, 2));
+  res.status(200).json({ message: "Mês removido com sucesso." });
+});
+
+// Middleware de autenticação
 server.use((req, res, next) => {
   if (req.originalUrl === "/api/login") {
     next();
@@ -61,8 +90,10 @@ server.use((req, res, next) => {
   }
 });
 
+// Usar o roteador JSON Server
 server.use(router);
 
-server.listen(8081, () => {
-  console.log("Servidor iniciado na porta 8081");
+// Iniciar o servidor
+server.listen(3001, () => {
+  console.log("Servidor iniciado na porta 3001");
 });

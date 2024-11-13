@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
-import Login from '../views/Login/logar/LoginPage.vue'
-import ResgistrarUsuario from '@/views/Login/registrar/ResgistrarUsuario.vue';
-import BaseLayout from '@/views/Layout/BaseLayout.vue';
-import { isAuthenticated } from '@/views/Login/auth';
+import Login from '../shared/Login/logar/LoginPage.vue'
+import ResgistrarUsuario from '@/shared/Login/registrar/ResgistrarUsuario.vue';
+import BaseLayout from '@/components/layout/BaseLayout.vue';
+import { isAuthenticated } from '@/shared/Login/auth';
 import { dashboardPaths } from './dashboard/dashboardPath';
 import { despesasPaths } from './despesas/despesasPath';
 

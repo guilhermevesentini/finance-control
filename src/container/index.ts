@@ -1,5 +1,5 @@
-import { AxiosHttpClientAdapter } from "@/services/AxiosHttpClientAdapter"
-import { httpClientDI, type HttpClient } from "@/services/httpClient"
+import { AxiosHttpClientAdapter } from "@/api/axios/AxiosHttpClientAdapter"
+import { httpClientDI, type HttpClient } from "@/api/types/httpClient"
 import { ContainerModule } from "inversify"
 
 
