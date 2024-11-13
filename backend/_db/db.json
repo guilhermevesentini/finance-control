@@ -1,0 +1,122 @@
+{
+  "users": [
+    {
+      "username": "usuario",
+      "password": "usuario",
+      "_id": "ae77fa5b2fc1d3fa8b42194638f7d938",
+      "id": "1"
+    },
+    {
+      "username": "user",
+      "password": "user",
+      "_id": "366c0de2a2f35351f72e92ffe2bdccef",
+      "id": "2"
+    },
+    {
+      "username": "teste",
+      "password": "teste",
+      "_id": "fcf70098d53e76ac13d2113b93a083e9",
+      "id": "3"
+    }
+  ],
+  "despesas": [
+    {
+      "id": "330277a4ecdfa439d626831777b8999e",
+      "nome": "hehehe",
+      "vencimento": "2024-11-12T14:27:34.569Z",
+      "recorrente": "1",
+      "frequencia": "1",
+      "replicar": false,
+      "meses": [
+        {
+          "valor": "50.00",
+          "ano": 2024,
+          "status": "2",
+          "descricao": "huhuhu",
+          "despesaId": "819719c6d1eb2d91b1dda3a3c19ffc35",
+          "vencimento": "2024-11-12T03:00:00.000Z",
+          "observacao": ""
+        },
+        {
+          "valor": "50.00",
+          "ano": 2024,
+          "status": "2",
+          "descricao": "huhuhu",
+          "despesaId": "452b13e8cd84c05ddc178081355df0d4",
+          "vencimento": "2024-12-12T03:00:00.000Z",
+          "observacao": ""
+        }
+      ],
+      "costumerId": {
+        "id": "366c0de2a2f35351f72e92ffe2bdccef"
+      }
+    },
+    {
+      "id": "d024a9d455bfbee4055d90d7a1b87818",
+      "nome": "aluguel",
+      "vencimento": "2024-11-13T03:00:00.000Z",
+      "recorrente": "1",
+      "frequencia": "1",
+      "replicar": false,
+      "meses": [
+        {
+          "valor": "1938.00",
+          "ano": 2024,
+          "status": "1",
+          "descricao": "1521",
+          "despesaId": "2cf7ebac735430a9b78e72d1f6c9e105",
+          "vencimento": "2024-11-13T03:00:00.000Z",
+          "observacao": ""
+        },
+        {
+          "valor": "1938.00",
+          "ano": 2024,
+          "status": "2",
+          "descricao": "1521",
+          "despesaId": "011a07c2bb3550d1749476e888e200d0",
+          "vencimento": "2024-12-13T03:00:00.000Z",
+          "observacao": ""
+        }
+      ],
+      "costumerId": {
+        "id": "ae77fa5b2fc1d3fa8b42194638f7d938"
+      }
+    },
+    {
+      "id": "2c09fff443060399d74e1a446d4cdc51",
+      "nome": "gui",
+      "vencimento": "2024-11-13T14:01:42.851Z",
+      "recorrente": "1",
+      "frequencia": "1",
+      "replicar": false,
+      "meses": [
+        {
+          "valor": "100.00",
+          "ano": 2024,
+          "status": "2",
+          "descricao": "gui",
+          "despesaId": "b1e23b24bc7d3096d9a1c54517a7a79c",
+          "vencimento": "2024-11-13T03:00:00.000Z",
+          "observacao": ""
+        },
+        {
+          "valor": "100.00",
+          "ano": 2024,
+          "status": "2",
+          "descricao": "gui",
+          "despesaId": "4d533d878c3d74cd7d23921e295fd871",
+          "vencimento": "2024-12-13T03:00:00.000Z",
+          "observacao": ""
+        }
+      ],
+      "costumerId": {
+        "id": "ae77fa5b2fc1d3fa8b42194638f7d938"
+      }
+    },
+    {
+      "id": "d111",
+      "despesaId": "2c09fff443060399d74e1a446d4cdc51",
+      "mesId": "b1e23b24bc7d3096d9a1c54517a7a79c"
+    }
+  ]
+}
