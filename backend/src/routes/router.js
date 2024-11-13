@@ -4,6 +4,6 @@ import usuarioRouter from "./usuario/usuarioRouter.js"; // Importando o roteador
 const router = express.Router();
 
 // Registrar o grupo de rotas de usuário com prefixo
-router.use("/users", usuarioRouter);
+router.use("/user", usuarioRouter);
 
 export default router;

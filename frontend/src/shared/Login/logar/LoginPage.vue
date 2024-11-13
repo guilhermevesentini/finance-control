@@ -171,6 +171,13 @@ const validarUsuario = async (formulario: IRuleLoginForm) => {
     }, 2000)
   } catch (err) {
     console.log(err)
+    ElNotification({
+      title: 'Erro',
+      message: 'Ocorreu um erro inesperado, entre em contato com o suporte.',
+      type: 'error',
+      duration: 5000
+    })
+    loading.value = false;
   }
 }
 
