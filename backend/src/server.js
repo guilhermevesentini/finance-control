@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import userRoutes from "./routes/userRoutes.js";
 import { createServer } from "http";
+import routes from "./routes/router.js";
 
 const app = express();
 
@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Definir rotas
-app.use("/user", userRoutes);
+app.use("/", routes);
 
 // Inicializar o servidor
 const PORT = process.env.PORT || 3001;
