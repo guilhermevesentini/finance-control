@@ -116,7 +116,10 @@ const validarUsuario = async (formulario: IRuleLoginForm) => {
       return
     }
 
-    const token = result;
+    const token = result.result;
+
+    console.log(result);
+
 
     if (token) {
       localStorage.setItem('token', token);

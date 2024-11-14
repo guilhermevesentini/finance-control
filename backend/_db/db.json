@@ -26,7 +26,7 @@
       "vencimento": "2024-11-12T14:27:34.569Z",
       "recorrente": "1",
       "frequencia": "1",
-      "replicar": false,
+      "replicar": false,      
       "meses": [
         {
           "valor": "50.00",
@@ -47,9 +47,7 @@
           "observacao": ""
         }
       ],
-      "costumerId": {
-        "id": "366c0de2a2f35351f72e92ffe2bdccef"
-      }
+      "customerId": "366c0de2a2f35351f72e92ffe2bdccef"
     },
     {
       "id": "d024a9d455bfbee4055d90d7a1b87818",
@@ -78,9 +76,7 @@
           "observacao": ""
         }
       ],
-      "costumerId": {
-        "id": "ae77fa5b2fc1d3fa8b42194638f7d938"
-      }
+      "customerId": "ae77fa5b2fc1d3fa8b42194638f7d938"
     },
     {
       "id": "2c09fff443060399d74e1a446d4cdc51",
@@ -109,14 +105,7 @@
           "observacao": ""
         }
       ],
-      "costumerId": {
-        "id": "ae77fa5b2fc1d3fa8b42194638f7d938"
-      }
-    },
-    {
-      "id": "d111",
-      "despesaId": "2c09fff443060399d74e1a446d4cdc51",
-      "mesId": "b1e23b24bc7d3096d9a1c54517a7a79c"
+      "customerId": "ae77fa5b2fc1d3fa8b42194638f7d938"
     }
   ]
 }

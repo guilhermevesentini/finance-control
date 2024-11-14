@@ -1,29 +1,19 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import jsonServer from "json-server";
+import dotenv from "dotenv";
 
+// Carregar as variáveis de ambiente
+dotenv.config();
 const db = jsonServer.router("./_db/db.json");
 
-// Criar adaptador para o banco de dados
-// const adapter = new FileSync("db.json");
-// const db = low(adapter);
+const SECRET_KEY = process.env.SECRET_KEY;
 
-// Secret para JWT
-const SECRET_KEY = "mysecretkey";
-
-// Função para criar o token JWT
-const createToken = (username) => {
-  return jwt.sign({ username }, SECRET_KEY, { expiresIn: "24h" });
-};
-
-// Função de login
 export const login = (req, res) => {
-  console.log("testetabdi login");
-
   const { username, password } = req.body;
 
-  const users = db.db.get("users").value(); // Obtendo a lista de usuários
-  const user = users.find((u) => u.username === username); // Procurando o usuário
+  const users = db.db.get("users").value();
+  const user = users.find((u) => u.username === username);
 
   if (!user) {
     return res.status(200).json({
@@ -38,8 +28,17 @@ export const login = (req, res) => {
   //   return res.status(401).json({ error: "Senha incorreta" });
   // }
 
-  const token = createToken(username);
-  res.json({ token });
+  const token = jwt.sign(
+    { id: user._id, username: user.username }, // Incluindo id no payload
+    SECRET_KEY, // Usando a chave secreta do env
+    { expiresIn: "24h" } // Token expira em 24 horas
+  );
+
+  return res.status(200).json({
+    statusCode: 200,
+    result: token,
+    error: null,
+  });
 };
 
 // Função de registro

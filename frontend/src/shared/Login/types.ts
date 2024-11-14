@@ -6,6 +6,14 @@ export interface IResponseLoginValidation {
   _id: string
 }
 
+export interface IResponseLoginValidation {
+  id: number
+  password: string
+  token: string
+  username: string
+  _id: string
+}
+
 export interface ILoginUser {
   _id?: string,
   id?: number,

@@ -179,9 +179,12 @@ const obterDespesas = async () => {
 
     const response = await despesasGateway.obterDespesas();
 
-    if (!response) return
+    if (response?.statusCode != 200) return
 
-    listaDeDespesas.value = response;
+    console.log('response.result', response.result);
+
+
+    listaDeDespesas.value = response.result || [];
 
   } catch (err) {
     console.log(err);

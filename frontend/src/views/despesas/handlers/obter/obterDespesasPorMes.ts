@@ -18,14 +18,10 @@ export default class obterDespesasPorMes implements IObterDespesasPorMes {
 		const anoAtual = new Date().getFullYear();
 		
 		const despesasDoMes: IDespesasModel[] = []
-
-		const despesas = await this.obterUsuario.obter();
-		
-		console.log('despesas', despesas);
 		
 
-		if (despesas && despesas.length >= 1) {
-			despesas.map((despesa) => {
+		if (despesasList && despesasList.length >= 1) {
+			despesasList.map((despesa) => {
 				if (despesa.meses) {
 					despesa.meses.forEach((mes) => {
 						const date = new Date(mes.vencimento as Date);

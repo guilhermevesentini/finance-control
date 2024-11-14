@@ -20,9 +20,9 @@ export default class LoginPageHttpRequest implements ILoginPageGateway {
         return true
     }
 
-    async validarUsuario(params: IRuleLoginForm): Promise<string | undefined> {
+    async validarUsuario(params: IRuleLoginForm): Promise<IDefaultHttpResponse<string | undefined> | undefined> {
 
-        const response = await this.httpClient.post<string | undefined>({
+        const response = await this.httpClient.post<IDefaultHttpResponse<string | undefined> | undefined>({
             url: `http://localhost:3001/user/login`,
             body: params
         });
