@@ -84,11 +84,12 @@ const despesasDetails = reactive<IDespesasModel>({
   replicar: false,
   ano: 0,
   despesaId: '',
+  mes: 0,
   id: '',
   nome: '',
   frequencia: '1',
   descricao: '',
-  costumerId: '',
+  customerId: '',
   observacao: '',
   recorrente: '2',
   status: '2',
@@ -157,7 +158,6 @@ const handleCriar = async (formEl: FormInstance | undefined) => {
 
         await salvarDespesas(novaDespesa)
 
-
         Voltar()
       }
     }
@@ -171,7 +171,7 @@ const Limpar = (() => {
   despesaDetails.nome = ''
   despesaDetails.frequencia = '1'
   despesaDetails.descricao = ''
-  despesaDetails.costumerId = ''
+  despesaDetails.customerId = ''
   despesaDetails.observacao = ''
   despesaDetails.recorrente = '2'
   despesaDetails.status = '2'

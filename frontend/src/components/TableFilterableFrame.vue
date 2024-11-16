@@ -3,7 +3,7 @@
     <el-table :data="produtosFiltrados" style="width: 100%; margin-top: 10px;" empty-text="Sem Valores"
         v-loading="isLoading" :default-sort="{ prop: 'vencimento', order: 'ascending' }">
         <slot name="tableCollumn"></slot>
-        <el-table-column align="right" width="80">
+        <el-table-column align="right" width="80" fixed="right">
             <template #default="scope">
                 <el-button small title="editar" :icon="Edit" link @click="handleEditar(scope.row)" />
                 <el-button small type="danger" title="Deletar" :icon="Delete" link @click="handleDeletar(scope.row)" />

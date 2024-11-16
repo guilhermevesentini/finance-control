@@ -3,20 +3,8 @@
     {
       "username": "usuario",
       "password": "usuario",
-      "_id": "ae77fa5b2fc1d3fa8b42194638f7d938",
+      "_id": "dcdf41f6-183b-45f9-99c8-508f5e2b8965",
       "id": "1"
-    },
-    {
-      "username": "user",
-      "password": "user",
-      "_id": "366c0de2a2f35351f72e92ffe2bdccef",
-      "id": "2"
-    },
-    {
-      "username": "teste",
-      "password": "teste",
-      "_id": "fcf70098d53e76ac13d2113b93a083e9",
-      "id": "3"
     }
   ]
 }

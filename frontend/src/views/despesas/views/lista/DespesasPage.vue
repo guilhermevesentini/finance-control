@@ -1,8 +1,9 @@
 <template>
   <el-row>
-    <el-col :xs="24" :sm="20">
+    <el-col :xs="24" :md="20">
       <el-row class="container_page" v-loading="loading">
-        <el-col class="hidden-sm-and-up" :span="24" style="margin: 0.5rem 0 1rem; padding: 0; display: flex; align-items: center;    justify-content: center;">
+        <el-col class="hidden-sm-and-up" :span="24"
+          style="margin: 0.5rem 0 1rem; padding: 0; display: flex; align-items: center;    justify-content: center;">
           <DatePeriodoPicker v-on:update:month-change="handlePeriodo" />
         </el-col>
         <el-col :span="24" style="margin: 0.5rem 0 1rem;">
@@ -10,14 +11,15 @@
             <el-col :span="4">
               <BreadCrumb name="Despesas" />
             </el-col>
-            <el-col class="hidden-sm-and-down" span="auto" style="margin: 0; padding: 0; display: flex; align-items: center;">
+            <el-col class="hidden-sm-and-down" span="auto"
+              style="margin: 0; padding: 0; display: flex; align-items: center;">
               <DatePeriodoPicker v-on:update:month-change="handlePeriodo" />
             </el-col>
             <el-col :span="4" style="display: flex;flex-wrap: wrap; justify-content: flex-end;">
               <FCButtonIcon type="primary" circle v-on:handle-click="adicionarDespesa" :icon="Plus" />
             </el-col>
           </el-row>
-        </el-col>        
+        </el-col>
         <el-col :span="24">
           <TableFilterableFrame v-on:handle-editar="editarDespesa" v-on:handle-deletar="deletarDespesa"
             :produtos="perPeriodlistaDeDespesas">
@@ -29,13 +31,13 @@
                     :title="financeHandler.defineStatus(scope.row.status).title" />
                 </template>
               </el-table-column>
-              <el-table-column label="Valor" prop="valor" width="150">
+              <el-table-column label="Valor" prop="valor" width="120">
                 <template v-slot="scope">
                   {{ formatCollumnNumber(scope.row) }}
                 </template>
               </el-table-column>
-              <el-table-column label="Nome" prop="nome" />
-              <el-table-column label="Descrição" prop="descricao" width="150"/>
+              <el-table-column label="Nome" prop="nome" width="auto" />
+              <el-table-column label="Descrição" prop="descricao" width="150" />
               <el-table-column label="Vencimento" prop="vencimento" width="150" sortable>
                 <template v-slot="scope">
                   {{ formatDate(scope.row.vencimento) }}
@@ -97,7 +99,7 @@ const despesasGateway = container.get<IDespesasGateway>(DespesasGatewayDi);
 const despesasFactory = container.get<IDespesaFactory>(DespesaFactoryDi);
 
 const periodo = reactive({
-  mes: new Date().getMonth(),
+  mes: new Date().getMonth() + 1,
   ano: new Date().getFullYear()
 })
 
@@ -172,7 +174,7 @@ const deletarDespesa = async (row: IDespesasModel) => {
       duration: 5000
     })
 
-    obterDespesas();
+    await obterDespesas();
   } catch (err) {
     console.log(err);
   } finally {
@@ -193,7 +195,7 @@ const obterDespesas = async () => {
 
       return
     }
-    
+
     listaDeDespesas.value = response.result || [];
 
     if (listaDeDespesas.value) {

@@ -18,7 +18,8 @@ export default class DespesaHandler implements IDespesaHandler {
     buildDespesa(despesasList: IDespesas, despesaId: string): IDespesasModel {
         const findMes = despesasList.meses.find((mes) => mes.despesaId == despesaId);
 
-        const despesa = {
+        const despesa = {   
+            mes: findMes?.mes || 0,
             status: findMes?.status || '2',
             valor: findMes?.valor || '0.00',
             nome: despesasList.nome || '',
@@ -30,9 +31,7 @@ export default class DespesaHandler implements IDespesaHandler {
             ano: findMes?.ano || 0,
             despesaId: findMes?.despesaId || '',
             observacao: findMes?.observacao || '',
-            costumerId: {
-                id: despesasList?.costumerId?.id || ''
-            },
+            customerId: despesasList.customerId,
             id: despesasList.id || '',
         }
 
@@ -43,11 +42,12 @@ export default class DespesaHandler implements IDespesaHandler {
         const despesaEditada: IDespesas = {
             id: despesa.id || '',
             nome: despesa.nome || '',
-            recorrente: despesa.recorrente || '1',
+            recorrente: despesa. recorrente|| '1',
             frequencia: despesa.frequencia,
             vencimento: despesa.vencimento,
             replicar: despesa.replicar || false,
             meses: [{
+                mes: despesa.mes || 0,
                 ano: despesa.ano || 0,
                 descricao: despesa.descricao || '',
                 despesaId: despesa.despesaId || '',
@@ -56,10 +56,7 @@ export default class DespesaHandler implements IDespesaHandler {
                 valor: despesa.valor || '0.00',
                 vencimento: despesa.vencimento || new Date(),
             }],
-            costumerId: {
-                id: despesa?.costumerId?.id || ''
-            },
-            
+            customerId: despesa?.customerId            
         }
 
         return despesaEditada
@@ -79,11 +76,9 @@ export default class DespesaHandler implements IDespesaHandler {
             descricao: despesasList.descricao || '',
             observacao: despesasList.observacao || '',
             despesaId: despesasList.despesaId || '',
+            mes: despesasList.mes || 0,
             meses: despesasList.recorrente == '1' ? this.despesaUseCase.handleMes(despesasList) : this.despesaUseCase.handleMeses(despesasList),
-            costumerId: {
-                id: despesasList?.costumerId?.id || ''
-            },
-            
+            customerId: despesasList?.customerId            
         }
 
         return despesa

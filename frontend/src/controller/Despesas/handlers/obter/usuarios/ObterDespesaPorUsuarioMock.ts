@@ -10,6 +10,7 @@ export const mockDespesas: IDespesas[] = [
     "frequencia": "1",
     "meses": [
       {
+        mes: 11,
         "valor": "200.00",
         "ano": 2024,
         "status": "2",
@@ -19,9 +20,7 @@ export const mockDespesas: IDespesas[] = [
         "observacao": ""
       }
     ],
-    "costumerId": {
-      "id": "ae77fa5b2fc1d3fa8b42194638f7d938"
-    }
+    "customerId":  "ae77fa5b2fc1d3fa8b42194638f7d938"
   },
   {
     "replicar": false,
@@ -32,6 +31,7 @@ export const mockDespesas: IDespesas[] = [
     "vencimento": "2024-11-08T03:00:00.000Z",
     "meses": [
       {
+        mes: 11,
         "ano": 2024,
         "descricao": "luz",
         "despesaId": "22def70c332b58ab1d5b45c2b28315f0",
@@ -41,8 +41,6 @@ export const mockDespesas: IDespesas[] = [
         "vencimento": "2024-11-08T03:00:00.000Z"
       }
     ],
-    "costumerId": {
-      "id": "ae77fa5b2fc1d3fa8b42194638f7d938"
-    }
+    "customerId": "ae77fa5b2fc1d3fa8b42194638f7d938"
   }
 ]

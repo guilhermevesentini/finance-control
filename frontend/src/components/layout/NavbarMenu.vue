@@ -1,12 +1,12 @@
 <template>
   <el-menu class="navbar" mode="horizontal" :ellipsis="false" @select="handleSelect">
     <el-menu-item class="logo">
-      <img :src="logo"> Finance Control
+      <img :src="logo"> <span class="hidden-sm-and-down">Finance Control</span>
     </el-menu-item>
     <div class="flex-grow" />
     <span>{{ nomeUsuario }}</span>
     <div class="flex-grow" />
-    <el-switch v-model="thema" inline-prompt :active-icon="Sunny" :inactive-icon="Moon" @click="toggleTheme" />
+    <el-switch class="hidden-sm-and-down" v-model="thema" inline-prompt :active-icon="Sunny" :inactive-icon="Moon" @click="toggleTheme" />
     <el-dropdown trigger="click" class="menu">
       <span class="el-dropdown-link">
         <el-icon class="el-icon--right">
@@ -71,6 +71,10 @@ onMounted(() => {
   align-items: center;
   color: #fff;
 
+  .el-menu-item:first-child:hover {
+    background-color: transparent;
+  }
+  
   .logo {
     color: #fff;
   }

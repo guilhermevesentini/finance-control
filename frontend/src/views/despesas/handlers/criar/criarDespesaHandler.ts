@@ -20,14 +20,14 @@ export default class criarDespesaHandler implements ICriarDespesaHandler {
   
   criar(despesa: IDespesasModel): IDespesas {
     const novaDespesa: IDespesas = {
-      id: useGerarId(configDespesaId),
+      id: null,
       nome: despesa.nome,
       vencimento: despesa.vencimento,
       recorrente: despesa.recorrente,
       frequencia: despesa.frequencia,
       replicar: despesa.replicar,
       meses: despesa.recorrente == '1' ? this.criarMeses.criar(despesa) : this.criarMes.criar(despesa),            
-      costumerId: despesa.costumerId || obterIdUsuario() || ''
+      customerId: despesa.customerId || obterIdUsuario() || ''
     }
 
     return novaDespesa;

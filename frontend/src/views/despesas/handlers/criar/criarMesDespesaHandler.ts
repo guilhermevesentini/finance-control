@@ -11,12 +11,18 @@ export interface ICriarMesDespesaHandler {
 @injectable()
 export default class criarMesDespesaHandler implements ICriarMesDespesaHandler {  
   criar(despesa: IDespesasModel): IDespesaMeses[] {
+    console.log('despesa', despesa);
+    
+    const mesDespesa = new Date(despesa.vencimento as Date).getMonth() + 1;
+    const ano = new Date(despesa.vencimento as Date).getFullYear();
+
     return [{
+      mes: mesDespesa,
       valor: despesa.valor || '0.00',
-      ano: new Date(despesa.vencimento as Date).getFullYear() || 0,
+      ano: ano,
       status: despesa.status || '2',
       descricao: despesa.descricao || '',
-      despesaId: despesa.despesaId || useGerarId(configDespesaId),
+      despesaId: despesa.id || null,
       vencimento: despesa.vencimento || new Date(),
       observacao: despesa.observacao || ''
     }]

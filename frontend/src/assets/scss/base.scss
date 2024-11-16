@@ -94,15 +94,3 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.hidden-sm-and-down {
-  @media (max-width: 767px) {
-    display: none !important;
-  }
-}
-
-.hidden-sm-and-up {
-  @media (min-width: 767px) {
-    display: none !important;
-  }
-}

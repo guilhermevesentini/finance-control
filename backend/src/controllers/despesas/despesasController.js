@@ -1,5 +1,5 @@
 import jsonServer from "json-server";
-
+import { v4 as uuidv4 } from "uuid";
 const despesasDb = jsonServer.router("./_db/despesas/despesas.json");
 const mesesDb = jsonServer.router("./_db/despesas/meses.json");
 
@@ -118,6 +118,72 @@ export const obterDespesasPorId = (req, res) => {
   return res.status(200).json({
     statusCode: 200,
     result: despesa,
+    error: null,
+  });
+};
+
+export const criarDespesa = (req, res) => {
+  const userId = req.user.id;
+
+  if (!userId) {
+    return res.status(400).json({ error: req.user });
+  }
+
+  const {
+    nome,
+    vencimento,
+    recorrente,
+    frequencia,
+    meses,
+    customerId,
+    replicar,
+  } = req.body;
+
+  // Aqui você pode processar esses dados, como salvar no banco de dados
+  if (
+    !nome ||
+    !vencimento ||
+    !recorrente ||
+    !frequencia ||
+    !meses ||
+    !customerId
+  ) {
+    return res.status(400).json({
+      error: "Campos obrigatórios ausentes",
+    });
+  }
+
+  const despesaModel = {
+    id: uuidv4(),
+    nome: nome,
+    recorrente: recorrente || "2",
+    vencimento: vencimento | undefined,
+    frequencia: frequencia,
+    replicar: replicar || false,
+    customerId: userId,
+  };
+
+  despesasDb.db.get("despesas").push(despesaModel).write();
+
+  meses.forEach((mes) => {
+    const model = {
+      id: uuidv4(),
+      ano: mes.ano,
+      mes: mes.mes,
+      valor: mes.valor,
+      status: mes.status,
+      descricao: mes.descricao,
+      despesaId: despesaModel.id,
+      vencimento: mes.vencimento,
+      observacao: mes.observacao,
+    };
+
+    mesesDb.db.get("meses").push(model).write();
+  });
+
+  return res.status(200).json({
+    statusCode: 200,
+    result: true,
     error: null,
   });
 };

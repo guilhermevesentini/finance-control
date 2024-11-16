@@ -24,10 +24,11 @@ export default class obterDespesasPorMes implements IObterDespesasPorMes {
 				if (despesa.meses) {
 					despesa.meses.forEach((mes) => {
 						const date = new Date(mes.vencimento as Date);
-						const month = date.getMonth();
+						const month = date.getMonth() + 1;
 
 						if (mes.ano === anoAtual && month === periodo) {
 							despesasDoMes.push({
+								mes: mes.mes || 0,
 								status: mes.status || '2',
 								valor: mes.valor || '0.00',
 								nome: despesa.nome || '',
@@ -39,9 +40,7 @@ export default class obterDespesasPorMes implements IObterDespesasPorMes {
 								replicar: despesa.replicar || false,                                
 								despesaId: mes.despesaId || '',
 								observacao: mes.observacao || '',
-								costumerId: {
-									id: despesa?.costumerId?.id || ''
-								},
+								customerId: despesa?.customerId,
 								id: despesa.id || '',
 							});
 						}

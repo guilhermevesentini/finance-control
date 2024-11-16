@@ -15,7 +15,7 @@ export interface IDespesas {
   recorrente: string | null
   frequencia: string
   replicar: boolean
-  costumerId: string
+  customerId: string
 }
 
 export interface IDespesasModel {
@@ -26,7 +26,7 @@ export interface IDespesasModel {
   frequencia: string
   replicar: boolean
   meses: IDespesaMeses[] | [];
-  costumerId: string
+  customerId: string
 }
 
 export default class DespesaModel {

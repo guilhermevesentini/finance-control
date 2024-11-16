@@ -1,5 +1,5 @@
 <template>
-  <el-drawer v-bind="$attrs" :size="size" class="FC-Drawer">
+  <el-drawer v-bind="$attrs" :size="widgetSize" class="FC-Drawer">
     <template #header="{ close, titleId, titleClass }">
       <h4>{{ title }}</h4>
     </template>
@@ -12,16 +12,27 @@
 </template>
 
 <script setup lang="ts">
+import useBreakpointsElement from '@/composables/useBreakpoints';
+import { computed } from 'vue';
+
 
 interface IProps {
   title: string
   size?: string
 }
 
-withDefaults(defineProps<IProps>(), {
+const props = withDefaults(defineProps<IProps>(), {
   title: '',
   size: '700px'
 })
+
+const { breakpoints } = useBreakpointsElement();
+
+const isMobile = computed(() => {
+  return breakpoints.smallerOrEqual("md").value;
+});
+
+const widgetSize = computed(() => isMobile ? '100%' : props.size)
 </script>
 
 <style lang="scss">

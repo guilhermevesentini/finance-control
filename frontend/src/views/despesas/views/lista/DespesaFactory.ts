@@ -12,6 +12,7 @@ export default class DespesaFactory implements IDespesaFactory {
 
     const despesasDoMes = despesas.flatMap((despesa) => 
       despesa.meses?.map((mes) => ({
+        mes: mes.mes ?? 0,
         status: mes.status ?? '2',
         valor: mes.valor ?? '0.00',
         nome: despesa.nome ?? '',
@@ -23,7 +24,7 @@ export default class DespesaFactory implements IDespesaFactory {
         replicar: despesa.replicar ?? false,
         despesaId: mes.despesaId ?? '',
         observacao: mes.observacao ?? '',
-        costumerId: despesa.costumerId,
+        customerId: despesa.customerId,
         id: despesa.id ?? '',
       })) || []
     );

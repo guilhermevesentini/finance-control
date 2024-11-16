@@ -34,21 +34,21 @@ interface IMonthsNames {
 }
 
 const months: IMonthsNames = {
-  0: 'Janeiro',
-  1: 'Fevereiro',
-  2: 'Março',
-  3: 'Abril',
-  4: 'Maio',
-  5: 'Junho',
-  6: 'Julho',
-  7: 'Agosto',
-  8: 'Setembro',
-  9: 'Outubro',
-  10: 'Novembro',
-  11: 'Dezembro'
+  1: 'Janeiro',
+  2: 'Fevereiro',
+  3: 'Março',
+  4: 'Abril',
+  5: 'Maio',
+  6: 'Junho',
+  7: 'Julho',
+  8: 'Agosto',
+  9: 'Setembro',
+  10: 'Outubro',
+  11: 'Novembro',
+  12: 'Dezembro'
 }
 
-const currentMonth = ref(dayjs().month());
+const currentMonth = ref(dayjs().month() + 1);
 const showLeftIcon = ref(true);
 const showRightIcon = ref(true);
 
@@ -63,13 +63,13 @@ const handleMonthName = (value: number) => {
 }
 
 const showArrowsIcons = (month: number) => {
-  if (month == 11) {
+  if (month == 12) {
     showRightIcon.value = false
   } else {
     showRightIcon.value = true
   }
 
-  if (month == 0) {
+  if (month == 1) {
     showLeftIcon.value = false
   } else {
     showLeftIcon.value = true

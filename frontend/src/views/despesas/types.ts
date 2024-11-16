@@ -9,38 +9,41 @@ export interface IDespesasModel {
   replicar: boolean
   observacao: string
   ano: number
-  costumerId: string
+  mes: number
+  customerId: string
   despesaId: string
   id: string
 }
 
 export interface IDespesaMeses {
+  mes: number;
   ano: number
   valor: string
   status: string
   descricao: string  
-  despesaId: string
+  despesaId: string | null
   vencimento: Date | string | undefined;
   observacao: string
 }
 
 export interface IDespesas {
-  id: string;
+  id: string | null;
   nome: string;
   recorrente: string | null
   vencimento: Date | string | undefined
   frequencia: string
   replicar: boolean
   meses: IDespesaMeses[] | [];
-  costumerId: string
+  customerId: string
 }
 
 export const DespesaInitialState: IDespesasModel = {
   id: '',
-  costumerId: '',
+  customerId: '',
   status: '',
   ano: 0,
   nome: '',
+  mes: 0,
   descricao: '',
   replicar: false,
   valor: '0.00',
