@@ -5,9 +5,7 @@
         <NavbarMenu />
       </el-header>
       <el-container class="full-height-aside">
-        <el-aside width="200px">
-          <SidebarMenu />
-        </el-aside>
+        <SidebarMenu />
         <el-container>
           <el-main>
             <MainContainer />

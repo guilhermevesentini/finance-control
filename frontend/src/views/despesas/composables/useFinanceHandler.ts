@@ -3,8 +3,6 @@ import { formatCurrency } from "@/common/utils/utils";
 export default function useFinanceHandler() {
 
     const sumTotal = <T extends { valor: string | number }>(lista: T[]): number => {
-        console.log(lista);
-        
         return lista.reduce((acc, item) => acc + Number(item.valor), 0);
     };
     

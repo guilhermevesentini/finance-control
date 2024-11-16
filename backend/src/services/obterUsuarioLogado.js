@@ -3,8 +3,6 @@ import jsonServer from "json-server";
 const db = jsonServer.router("./_db/usuario/users.json");
 
 export const usuarioLogado = (req, res) => {
-  console.log("req.user:", req.user);
-
   const userId = req.user;
 
   if (!userId) {
@@ -12,8 +10,6 @@ export const usuarioLogado = (req, res) => {
   }
 
   const despesas = db.db.get("despesas").value();
-
-  console.log("despesas", despesas);
 
   const despesasUsuario = despesas.filter(
     (despesa) => despesa.customerId === req.user.id

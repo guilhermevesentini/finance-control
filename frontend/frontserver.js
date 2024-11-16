@@ -108,8 +108,6 @@ server.get("/api/users/:username", (req, res) => {
   // Buscar usuário no banco de dados
   const user = router.db.get("users").find({ username }).value();
 
-  console.log("user", user);
-
   if (!user) {
     res.status(404).json({ error: "Usuário não encontrado." });
     return;

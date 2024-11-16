@@ -31,8 +31,6 @@ const handleTabClick = (tab: TabsPaneContext) => {
 };
 
 watch(() => route.name, (newVal) => {
-  console.log(newVal);
-
   currentRoute.value = route.path as string;
 }, { deep: true, immediate: true });
 

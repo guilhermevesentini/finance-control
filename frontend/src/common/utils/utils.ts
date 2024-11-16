@@ -68,8 +68,6 @@ const formatCurrency = (value: string | number): string => {
 };
 
 const currencyToInt = (value: string | number): number => {
-  console.log('value', value);
-
   if (typeof value === "string") {
     // Remove os pontos e as vírgulas
     const cleanValue = value.replace(/[^\d,.-]/g, '').replace(',', '.');

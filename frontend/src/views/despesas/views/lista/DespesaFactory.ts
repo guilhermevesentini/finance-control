@@ -28,6 +28,8 @@ export default class DespesaFactory implements IDespesaFactory {
       })) || []
     );
 
+    console.log('despesasDoMes', despesasDoMes);
+
     return despesasDoMes.length ? despesasDoMes : [];
   }
 }

@@ -70,7 +70,7 @@ export const obterDespesasPorMes = (req, res) => {
     if (!mesesFiltrados.length) return null;
 
     return {
-      despesa,
+      ...despesa,
       meses: mesesFiltrados || [],
     };
   });

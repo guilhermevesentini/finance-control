@@ -1,20 +1,23 @@
 <template>
   <el-row>
-    <el-col :span="20">
+    <el-col :xs="24" :sm="20">
       <el-row class="container_page" v-loading="loading">
+        <el-col class="hidden-sm-and-up" :span="24" style="margin: 0.5rem 0 1rem; padding: 0; display: flex; align-items: center;    justify-content: center;">
+          <DatePeriodoPicker v-on:update:month-change="handlePeriodo" />
+        </el-col>
         <el-col :span="24" style="margin: 0.5rem 0 1rem;">
           <el-row class="row-bg" justify="space-between">
             <el-col :span="4">
               <BreadCrumb name="Despesas" />
             </el-col>
-            <el-col span="auto" style="margin: 0; padding: 0; display: flex; align-items: center;">
+            <el-col class="hidden-sm-and-down" span="auto" style="margin: 0; padding: 0; display: flex; align-items: center;">
               <DatePeriodoPicker v-on:update:month-change="handlePeriodo" />
             </el-col>
             <el-col :span="4" style="display: flex;flex-wrap: wrap; justify-content: flex-end;">
               <FCButtonIcon type="primary" circle v-on:handle-click="adicionarDespesa" :icon="Plus" />
             </el-col>
           </el-row>
-        </el-col>
+        </el-col>        
         <el-col :span="24">
           <TableFilterableFrame v-on:handle-editar="editarDespesa" v-on:handle-deletar="deletarDespesa"
             :produtos="perPeriodlistaDeDespesas">
@@ -32,7 +35,7 @@
                 </template>
               </el-table-column>
               <el-table-column label="Nome" prop="nome" />
-              <el-table-column label="Descrição" prop="descricao" />
+              <el-table-column label="Descrição" prop="descricao" width="150"/>
               <el-table-column label="Vencimento" prop="vencimento" width="150" sortable>
                 <template v-slot="scope">
                   {{ formatDate(scope.row.vencimento) }}
@@ -43,7 +46,7 @@
         </el-col>
       </el-row>
     </el-col>
-    <el-col :span="4">
+    <el-col class="hidden-sm-and-down" :span="4">
       <ResumoLateral v-loading="loading" label="Total despesas" :totalDeDespesas="totalDeDespesas"
         :totalPago="totalPago" :totalPendente="totalPendente" />
     </el-col>
@@ -181,9 +184,6 @@ const obterDespesas = async () => {
   try {
     loading.value = true
 
-    console.log(periodo.mes, periodo.ano);
-
-
     const response = await despesasGateway.obterDespesasPorMes(periodo.mes, periodo.ano);
 
     if (response?.statusCode != 200) {
@@ -193,9 +193,7 @@ const obterDespesas = async () => {
 
       return
     }
-
-    console.log(response.result);
-
+    
     listaDeDespesas.value = response.result || [];
 
     if (listaDeDespesas.value) {

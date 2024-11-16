@@ -28,9 +28,7 @@ export default class DespesasGatewayAdapters implements IDespesasGateway {
         return response.body
     }
 
-    async criarDespesa(despesa: IDespesas): Promise<boolean> {
-        console.log('criarDespesa', despesa);
-        
+    async criarDespesa(despesa: IDespesas): Promise<boolean> {        
         const response = await this.httpClient.post<boolean>({
             url: `http://localhost:3001/despesas`,
             body: despesa
