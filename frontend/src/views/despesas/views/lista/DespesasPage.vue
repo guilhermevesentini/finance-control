@@ -4,13 +4,13 @@
       <el-row class="container_page" v-loading="loading">
         <el-col :span="24" style="margin: 0.5rem 0 1rem;">
           <el-row class="row-bg" justify="space-between">
-            <el-col :span="8">
+            <el-col :span="4">
               <BreadCrumb name="Despesas" />
             </el-col>
             <el-col span="auto" style="margin: 0; padding: 0; display: flex; align-items: center;">
               <DatePeriodoPicker v-on:update:month-change="handlePeriodo" />
             </el-col>
-            <el-col :span="8" style="display: flex;flex-wrap: wrap; justify-content: flex-end;">
+            <el-col :span="4" style="display: flex;flex-wrap: wrap; justify-content: flex-end;">
               <FCButtonIcon type="primary" circle v-on:handle-click="adicionarDespesa" :icon="Plus" />
             </el-col>
           </el-row>
@@ -55,8 +55,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, computed, onUnmounted } from "vue";
-import { DespesaDi, type IDespesaHandler } from "../../handlers/DespesaHandler";
+import { onMounted, ref, computed, onUnmounted, reactive } from "vue";
 import { formatCurrency, formatDate } from "@/common/utils/utils";
 import BreadCrumb from "@/components/BreadCrumb.vue";
 import DatePeriodoPicker from "@/components/DatePeriodoPicker.vue";
@@ -76,6 +75,7 @@ import { DespesaInitialState, type IDespesas, type IDespesasModel } from "../../
 import useFinanceHandler from "../../composables/useFinanceHandler";
 import { obterDespesasPorMesDi, type IObterDespesasPorMes } from "../../handlers/obter/obterDespesasPorMes";
 import { ElNotification } from "element-plus";
+import { DespesaFactoryDi, type IDespesaFactory } from "./DespesaFactory";
 
 container.load(despesasContainer)
 
@@ -85,14 +85,18 @@ const showDrawerEditar = ref(false);
 
 const Despesa = ref<IDespesasModel>(DespesaInitialState);
 
-const despesaHandler = container.get<IObterDespesasPorMes>(obterDespesasPorMesDi);
-
 const listaDeDespesas = ref<IDespesas[]>([]);
 
-const perPeriodlistaDeDespesas = ref<IDespesasModel[]>([]);
+const perPeriodlistaDeDespesas = ref<IDespesasModel[] | undefined>([]);
 
 const financeHandler = useFinanceHandler();
 const despesasGateway = container.get<IDespesasGateway>(DespesasGatewayDi);
+const despesasFactory = container.get<IDespesaFactory>(DespesaFactoryDi);
+
+const periodo = reactive({
+  mes: new Date().getMonth(),
+  ano: new Date().getFullYear()
+})
 
 const formatCollumnNumber = (row: IDespesasModel) => {
   const valor = row.valor;
@@ -100,29 +104,29 @@ const formatCollumnNumber = (row: IDespesasModel) => {
   return formatCurrency(valor)
 }
 const totalDeDespesas = computed(() => {
-  return financeHandler.obterTotal(perPeriodlistaDeDespesas?.value)
+  return financeHandler.obterTotal(perPeriodlistaDeDespesas?.value || [])
 })
 
 const totalPago = computed(() => {
-  const findDespesasPagas = perPeriodlistaDeDespesas.value.filter(despesa => {
+  const findDespesasPagas = perPeriodlistaDeDespesas?.value?.filter(despesa => {
     if (despesa.status == '1') {
       return despesa
     }
   })
 
-  return financeHandler.obterTotal(findDespesasPagas)
+  return financeHandler.obterTotal(findDespesasPagas || [])
 })
 
 const totalPendente = computed(() => {
   const despesas = perPeriodlistaDeDespesas.value;
 
-  const findDespesasPagas = despesas.filter(despesa => {
+  const findDespesasPagas = despesas?.filter(despesa => {
     if (despesa.status == '2') {
       return despesa
     }
   })
 
-  return financeHandler.obterTotal(findDespesasPagas)
+  return financeHandler.obterTotal(findDespesasPagas || [])
 })
 
 const adicionarDespesa = () => {
@@ -177,14 +181,28 @@ const obterDespesas = async () => {
   try {
     loading.value = true
 
-    const response = await despesasGateway.obterDespesas();
+    console.log(periodo.mes, periodo.ano);
 
-    if (response?.statusCode != 200) return
 
-    console.log('response.result', response.result);
+    const response = await despesasGateway.obterDespesasPorMes(periodo.mes, periodo.ano);
 
+    if (response?.statusCode != 200) {
+
+      listaDeDespesas.value = []
+      perPeriodlistaDeDespesas.value = []
+
+      return
+    }
+
+    console.log(response.result);
 
     listaDeDespesas.value = response.result || [];
+
+    if (listaDeDespesas.value) {
+      perPeriodlistaDeDespesas.value = despesasFactory.create(listaDeDespesas.value)
+    } else {
+      listaDeDespesas.value = []
+    }
 
   } catch (err) {
     console.log(err);
@@ -195,8 +213,13 @@ const obterDespesas = async () => {
   }
 }
 
-const handlePeriodo = async (month: number) => {
-  return perPeriodlistaDeDespesas.value = await despesaHandler.obter(listaDeDespesas.value, month)
+const handlePeriodo = async (mes: number, ano: number) => {
+  periodo.mes = mes
+  periodo.ano = ano
+
+
+
+  await obterDespesas()
 }
 
 onMounted(() => {

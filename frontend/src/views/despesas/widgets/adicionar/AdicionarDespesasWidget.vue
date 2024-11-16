@@ -88,9 +88,7 @@ const despesasDetails = reactive<IDespesasModel>({
   nome: '',
   frequencia: '1',
   descricao: '',
-  costumerId: {
-    id: ''
-  },
+  costumerId: '',
   observacao: '',
   recorrente: '2',
   status: '2',
@@ -173,7 +171,7 @@ const Limpar = (() => {
   despesaDetails.nome = ''
   despesaDetails.frequencia = '1'
   despesaDetails.descricao = ''
-  despesaDetails.costumerId.id = ''
+  despesaDetails.costumerId = ''
   despesaDetails.observacao = ''
   despesaDetails.recorrente = '2'
   despesaDetails.status = '2'

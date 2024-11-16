@@ -9,9 +9,7 @@ export interface IDespesasModel {
   replicar: boolean
   observacao: string
   ano: number
-  costumerId: {
-    id: string
-  }
+  costumerId: string
   despesaId: string
   id: string
 }
@@ -34,16 +32,12 @@ export interface IDespesas {
   frequencia: string
   replicar: boolean
   meses: IDespesaMeses[] | [];
-  costumerId: {
-    id: string
-  }
+  costumerId: string
 }
 
 export const DespesaInitialState: IDespesasModel = {
   id: '',
-  costumerId: {
-      id: ''
-  },
+  costumerId: '',
   status: '',
   ano: 0,
   nome: '',

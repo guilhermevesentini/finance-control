@@ -18,7 +18,6 @@ export const authenticate = (req, res, next) => {
       return res.status(403).json({ error: "Token inválido ou expirado" });
     }
 
-    // Adiciona o usuário decodificado à requisição
     req.user = decoded;
     next(); // Chama o próximo middleware ou a função da rota
   });

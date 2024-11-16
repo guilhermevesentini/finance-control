@@ -7,6 +7,7 @@ export interface IDespesasGateway {
     obterDespesas(): Promise<IDefaultHttpResponse<IDespesas[]> | undefined>
     excluirDespesa(params: IDespesasModel): Promise<boolean>
     criarDespesa(despesa: IDespesas): Promise<boolean>
+    obterDespesasPorMes(mes: number, ano: number): Promise<IDefaultHttpResponse<IDespesas[] | undefined> | undefined>
 }
 
 export const DespesasGatewayDi = Symbol("DespesasGatewayDi")

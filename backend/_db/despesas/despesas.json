@@ -1,0 +1,13 @@
+{
+  "despesas": [
+    {
+      "id": "d024a9d455bfbee4055d90d7a1b87818",
+      "nome": "aluguel",
+      "vencimento": "2024-11-13T03:00:00.000Z",
+      "recorrente": "1",
+      "frequencia": "1",
+      "replicar": false,
+      "customerId": "ae77fa5b2fc1d3fa8b42194638f7d938"
+    }
+  ]
+}

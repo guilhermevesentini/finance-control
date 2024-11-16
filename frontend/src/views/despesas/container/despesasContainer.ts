@@ -10,6 +10,7 @@ import criarMesesDespesaHandler, { criarMesesDespesaHandlerDi, type ICriarMesesD
 import criarDespesaUseCase, { criarDespesaUseCaseDi, type ICriarDespesaUseCase } from "../handlers/criar/criarDespesaUseCase";
 import obterDespesasPorMes, { obterDespesasPorMesDi, type IObterDespesasPorMes } from "../handlers/obter/obterDespesasPorMes";
 import editarDespesaHandler, { editarDespesaHandlerDi, type IEditarDespesaHandler } from "../handlers/editar/editarDespesaHandler";
+import DespesaFactory, { DespesaFactoryDi, type IDespesaFactory } from "../views/lista/DespesaFactory";
 
 
 export const despesasContainer = new ContainerModule((bind) => {
@@ -26,4 +27,6 @@ export const despesasContainer = new ContainerModule((bind) => {
     bind<ICriarDespesaUseCase>(criarDespesaUseCaseDi).to(criarDespesaUseCase)
 
     bind<IEditarDespesaHandler>(editarDespesaHandlerDi).to(editarDespesaHandler)
+
+    bind<IDespesaFactory>(DespesaFactoryDi).to(DespesaFactory)
 })

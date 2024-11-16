@@ -40,7 +40,7 @@ export default class ObterDespesaPorUsuario implements IObterDespesaPorUsuario {
     const idUsuario = await this.obterUsuario()    
 
     const response = await this.httpClient.get<IDespesas[] | undefined>({
-      url: `http://localhost:3001/despesas?costumerId.id=${idUsuario._id}`
+      url: `http://localhost:3001/despesas?${idUsuario._id}`
     });
 
     console.log('response', response);

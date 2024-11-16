@@ -17,8 +17,7 @@ export default class obterDespesasPorMes implements IObterDespesasPorMes {
 
 		const anoAtual = new Date().getFullYear();
 		
-		const despesasDoMes: IDespesasModel[] = []
-		
+		const despesasDoMes: IDespesasModel[] = [];		
 
 		if (despesasList && despesasList.length >= 1) {
 			despesasList.map((despesa) => {

@@ -1,8 +1,12 @@
 import express from "express";
-import { obterDespesas } from "../../controllers/despesas/despesasController.js";
+import {
+  obterDespesas,
+  obterDespesasPorMes,
+} from "../../controllers/despesas/despesasController.js";
 
 const despesasRouter = express.Router();
 
-despesasRouter.get("/", obterDespesas);
+despesasRouter.get("/despesas", obterDespesas);
+despesasRouter.get("/despesasPorMes", obterDespesasPorMes);
 
 export default despesasRouter;

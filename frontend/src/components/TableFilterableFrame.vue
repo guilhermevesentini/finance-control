@@ -26,7 +26,7 @@ import { Search } from '@element-plus/icons-vue'
 import { computed, ref } from 'vue';
 
 const props = defineProps<{
-    produtos: unknown[];
+    produtos: unknown[] | undefined;
     Loading?: boolean
 }>();
 
@@ -43,7 +43,7 @@ const currentPage = ref(1);
 const itemsPerPage = ref(8);
 
 const produtosFiltrados = computed(() => {
-    return filtrarItems(props.produtos, filtroAtual, currentPage, itemsPerPage)
+    return filtrarItems(props?.produtos || [], filtroAtual, currentPage, itemsPerPage)
 });
 
 const handlePageChange = (newPage: number) => {

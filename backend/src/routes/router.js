@@ -7,6 +7,6 @@ const router = express.Router();
 
 router.use("/user", usuarioRouter);
 
-router.use("/despesas", authenticate, despesasRouter);
+router.use("/", authenticate, despesasRouter);
 
 export default router;

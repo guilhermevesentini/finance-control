@@ -69,4 +69,14 @@ export default class DespesasGatewayAdapters implements IDespesasGateway {
         return response.body
     }
 
+    async obterDespesasPorMes(mes: number, ano: number): Promise<IDefaultHttpResponse<IDespesas[] | undefined> | undefined> {
+        const response = await this.httpClient.get<IDefaultHttpResponse<IDespesas[] | undefined>>({
+            url: `http://localhost:3001/despesasPorMes`,
+            queryParams: {mes: mes, ano: ano}
+        });
+
+        if (response.status != 200 || !response.body) return 
+
+        return response.body
+    }
 }

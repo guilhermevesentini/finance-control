@@ -5,7 +5,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "backend": "nodemon --inspect-brk src/server.js"
+    "backend": "nodemon src/server.js",
+    "dbackend": "nodemon --inspect src/server.js"
   },
   "exports": {
     ".": "./lib/server.js"

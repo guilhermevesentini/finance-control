@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Express App",
+      "program": "/backend/src/server.js", // Altere para o caminho do seu arquivo principal
+      "restart": true,
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["--inspect"],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+}

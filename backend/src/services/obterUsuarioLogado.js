@@ -1,11 +1,11 @@
 import jsonServer from "json-server";
 
-const db = jsonServer.router("./_db/db.json");
+const db = jsonServer.router("./_db/usuario/users.json");
 
 export const usuarioLogado = (req, res) => {
-  console.log("req.user:", req.user); // Verifica o conteúdo de req.user
+  console.log("req.user:", req.user);
 
-  const userId = req.user; // Usando ?. para evitar erro se req.user for undefined
+  const userId = req.user;
 
   if (!userId) {
     return res.status(400).json({ error: req.user });
@@ -13,7 +13,7 @@ export const usuarioLogado = (req, res) => {
 
   const despesas = db.db.get("despesas").value();
 
-  console.log("despesas", despesas); // Verifica o conteúdo de req.user
+  console.log("despesas", despesas);
 
   const despesasUsuario = despesas.filter(
     (despesa) => despesa.customerId === req.user.id
